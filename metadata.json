@@ -1,0 +1,6 @@
+{
+  "name": "Tenoch Girón | Studio",
+  "description": "Sitio Web Oficial de Desarrollador para Google Play Console, Portafolio Interactivo y Demos de IA del Ing. Tenoch Alberto Girón Acosta.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

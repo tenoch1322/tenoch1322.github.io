@@ -1,0 +1,13 @@
+# app-ads.txt
+# Official Authorized Digital Sellers specification for Google AdMob
+# Developer: Ing. Tenoch Alberto Girón Acosta
+# Contact: tenochalbertogiron290@gmail.com
+# Website: Tenoch Girón | AI & Mobile Studio
+#
+# Standard format: <Field 1>, <Field 2>, <Field 3>, <Field 4>
+# Field 1: Domain name of the advertising system (canonical domain)
+# Field 2: Publisher Account ID in Google AdMob / AdSense
+# Field 3: Type of Relationship (DIRECT or RESELLER)
+# Field 4: Certification Authority ID (Google TAG ID: f08c47fec0942fa0)
+
+google.com, pub-8559595509120000, DIRECT, f08c47fec0942fa0
