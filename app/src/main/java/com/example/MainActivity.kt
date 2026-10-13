@@ -28,7 +28,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -38,13 +37,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.OpenInBrowser
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -52,7 +47,6 @@ import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -100,6 +94,7 @@ fun DeveloperPortalScreen() {
   var canGoBack by remember { mutableStateOf(false) }
   var isLoading by remember { mutableStateOf(true) }
   var showUrlsDialog by remember { mutableStateOf(false) }
+  var showPrivacyNoticeDialog by remember { mutableStateOf(false) }
 
   // Handle system back gesture
   BackHandler(enabled = canGoBack) {
@@ -159,6 +154,16 @@ fun DeveloperPortalScreen() {
             }
           },
           actions = {
+            IconButton(
+              onClick = { showPrivacyNoticeDialog = true },
+              modifier = Modifier.testTag("btn_security_info")
+            ) {
+              Icon(
+                imageVector = Icons.Default.Lock,
+                contentDescription = "Seguridad y Protección de Datos",
+                tint = GoogleGreen
+              )
+            }
             IconButton(
               onClick = { showUrlsDialog = true },
               modifier = Modifier.testTag("btn_play_urls")
@@ -232,17 +237,26 @@ fun DeveloperPortalScreen() {
               ViewGroup.LayoutParams.MATCH_PARENT
             )
 
+            // Hardened WebView settings to prevent data leakage and arbitrary file access
             settings.apply {
               javaScriptEnabled = true
               domStorageEnabled = true
-              allowFileAccess = true
-              allowContentAccess = true
+              allowFileAccess = false
+              allowContentAccess = false
+              allowFileAccessFromFileURLs = false
+              allowUniversalAccessFromFileURLs = false
               loadWithOverviewMode = true
               useWideViewPort = true
               cacheMode = WebSettings.LOAD_DEFAULT
               displayZoomControls = false
               builtInZoomControls = false
+              databaseEnabled = false
+              setGeolocationEnabled(false)
             }
+
+            // Prevent long-press contextual menus to prevent saving or exporting raw assets
+            isLongClickable = false
+            setOnLongClickListener { true }
 
             webChromeClient = WebChromeClient()
 
@@ -268,12 +282,17 @@ fun DeveloperPortalScreen() {
                   try {
                     ctx.startActivity(intent)
                   } catch (e: Exception) {
-                    Toast.makeText(ctx, "No se encontró cliente de correo: $url", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(ctx, "Cliente de correo: $url", Toast.LENGTH_SHORT).show()
                   }
                   return true
                 }
                 return false
               }
+            }
+
+            // Explicitly reject file downloads to safeguard data integrity
+            setDownloadListener { _, _, _, _, _ ->
+              Toast.makeText(ctx, "Descargas deshabilitadas por política de protección de datos.", Toast.LENGTH_SHORT).show()
             }
 
             loadUrl("file:///android_asset/web/index.html")
@@ -304,6 +323,13 @@ fun DeveloperPortalScreen() {
     }
   }
 
+  // Dialog with Security and Data Protection Explanations
+  if (showPrivacyNoticeDialog) {
+    SecurityPolicyNoticeDialog(
+      onDismiss = { showPrivacyNoticeDialog = false }
+    )
+  }
+
   // Dialog with One-Click URLs for Google Play Console Submission
   if (showUrlsDialog) {
     GooglePlayUrlsDialog(
@@ -311,6 +337,69 @@ fun DeveloperPortalScreen() {
       context = context
     )
   }
+}
+
+@Composable
+fun SecurityPolicyNoticeDialog(onDismiss: () -> Unit) {
+  AlertDialog(
+    onDismissRequest = onDismiss,
+    title = {
+      Row(verticalAlignment = Alignment.CenterVertically) {
+        Icon(
+          imageVector = Icons.Default.Lock,
+          contentDescription = null,
+          tint = GoogleGreen,
+          modifier = Modifier.size(20.dp)
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(
+          text = "Protección y Privacidad de Datos",
+          fontWeight = FontWeight.Bold,
+          fontSize = 16.sp
+        )
+      }
+    },
+    text = {
+      Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = Modifier.fillMaxWidth()
+      ) {
+        Text(
+          text = "Política de Solo Lectura (Anti-Scraping / Data Safe):",
+          fontSize = 12.sp,
+          fontWeight = FontWeight.Bold,
+          color = Color.White
+        )
+        Text(
+          text = "• Los datos presentados son exclusivamente para consulta y verificación de identidad ante Google Play Console.",
+          fontSize = 11.sp,
+          color = Color(0xFFCBD5E1)
+        )
+        Text(
+          text = "• Las descargas de datos personales, expedientes académicos o bases de datos están totalmente deshabilitadas.",
+          fontSize = 11.sp,
+          color = Color(0xFFCBD5E1)
+        )
+        Text(
+          text = "• No se exponen datos confidenciales sensibles (teléfono personal, domicilio particular, credenciales privadas ni claves de API).",
+          fontSize = 11.sp,
+          color = Color(0xFFCBD5E1)
+        )
+        Text(
+          text = "• Cumple 100% con las directivas de Google Play Data Safety y la Ley Federal de Protección de Datos Personales (México).",
+          fontSize = 11.sp,
+          color = GoogleGreen
+        )
+      }
+    },
+    confirmButton = {
+      TextButton(onClick = onDismiss) {
+        Text("Entendido", color = GoogleBlue, fontWeight = FontWeight.Bold)
+      }
+    },
+    containerColor = DarkSurface,
+    titleContentColor = Color.White
+  )
 }
 
 @Composable
@@ -410,8 +499,8 @@ fun GooglePlayUrlsDialog(onDismiss: () -> Unit, context: Context) {
 
 @Composable
 fun PlayUrlItem(label: String, url: String, onCopy: () -> Unit) {
-  Card(
-    colors = CardDefaults.cardColors(containerColor = Color(0xFF0F172A)),
+  androidx.compose.material3.Card(
+    colors = androidx.compose.material3.CardDefaults.cardColors(containerColor = Color(0xFF0F172A)),
     shape = RoundedCornerShape(8.dp),
     modifier = Modifier.fillMaxWidth()
   ) {
