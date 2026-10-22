@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tenoch Girón | AI & Mobile Studio — Official Google Play Developer Portal</title>
-  <meta name="description" content="Sitio web oficial de desarrollador de Google Play Console, portafolio de aplicaciones móviles, proyectos de IA y centro de cumplimiento normativo del Ing. Tenoch Alberto Girón Acosta.">
+  <meta name="description" content="Portal oficial de desarrollador verificado en Google Play Console. Portafolio de aplicaciones móviles con IA, ciencia de datos y centro de cumplimiento normativo del Ing. Tenoch Alberto Girón Acosta.">
   <meta name="author" content="Ing. Tenoch Alberto Girón Acosta">
   
   <!-- Tailwind CSS CDN -->
@@ -15,18 +15,33 @@
       theme: {
         extend: {
           colors: {
-            googleBlue: '#4285F4',
-            googleRed: '#EA4335',
-            googleYellow: '#FBBC05',
-            googleGreen: '#34A853',
-            sparkPurple: '#8B5CF6',
-            geminiBlue: '#38BDF8',
-            darkBg: '#0B0F19',
+            googleBlue: '#38BDF8',
+            googleRed: '#F87171',
+            googleYellow: '#FBBF24',
+            googleGreen: '#34D399',
+            sparkPurple: '#A855F7',
+            geminiBlue: '#0284C7',
+            darkBg: '#090D16',
             darkCard: '#111827',
             darkBorder: '#1F2937'
           },
           fontFamily: {
             sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 3s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 15px rgba(56, 189, 248, 0.2)' },
+              '100%': { shadow: '0 0 30px rgba(168, 85, 247, 0.4)' },
+            }
           }
         }
       }
@@ -34,128 +49,141 @@
   </script>
   
   <style>
-    /* Custom Scrollbar and UI Highlights */
+    /* 2026 Modern Dark Tech Glassmorphism */
     ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
-    ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.5); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(66, 133, 244, 0.8); }
+    ::-webkit-scrollbar-track { background: #090D16; }
+    ::-webkit-scrollbar-thumb { background: #374151; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #38BDF8; }
+    
     .glass-card {
-      background: rgba(17, 24, 39, 0.75);
-      backdrop-filter: blur(12px);
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .light .glass-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(226, 232, 240, 0.9);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(226, 232, 240, 0.8);
     }
-    .gradient-border {
-      position: relative;
-      border-radius: 1rem;
-    }
-    .gradient-border::before {
-      content: "";
+
+    .ambient-glow {
       position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(135deg, #4285F4, #8B5CF6, #34A853);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.18;
       pointer-events: none;
     }
+
+    .mockup-phone {
+      border: 10px solid #1f2937;
+      border-radius: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      background: #090D16;
+    }
+
+    /* Prevent drag & unapproved image saving */
+    img, svg { user-select: none; -webkit-user-drag: none; }
   </style>
 </head>
-<body class="bg-darkBg text-slate-100 transition-colors duration-300 min-h-screen flex flex-col font-sans selection:bg-googleBlue selection:text-white">
+<body class="bg-darkBg text-slate-100 transition-colors duration-300 min-h-screen flex flex-col font-sans selection:bg-googleBlue selection:text-slate-950 select-none" oncontextmenu="return false;">
 
-  <!-- TOP COMPLIANCE BADGE BAR -->
-  <div class="bg-slate-950/80 border-b border-slate-800 text-xs py-2 px-4 sticky top-0 z-50 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+  <!-- AMBIENT BACKGROUND GLOWS (2026 AESTHETIC) -->
+  <div class="ambient-glow w-96 h-96 bg-googleBlue top-10 left-10"></div>
+  <div class="ambient-glow w-96 h-96 bg-sparkPurple top-1/3 right-10"></div>
+  <div class="ambient-glow w-96 h-96 bg-googleGreen bottom-20 left-1/4"></div>
+
+  <!-- TOP COMPLIANCE & VERIFICATION BAR -->
+  <div class="bg-slate-950/90 border-b border-slate-800 text-xs py-2.5 px-4 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-googleGreen/20 text-emerald-400 border border-googleGreen/30">
-          <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          <svg class="w-3.5 h-3.5 mr-1 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
           Google Play Verified Developer Portal
         </span>
         <span class="text-slate-400 hidden sm:inline" data-i18n="top_bar_id">Desarrollador Oficial: Ing. Tenoch Alberto Girón Acosta</span>
       </div>
-      <div class="flex items-center gap-4 text-slate-400">
-        <a href="mailto:tenochalbertogiron290@gmail.com" class="hover:text-googleBlue transition flex items-center gap-1">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-          tenochalbertogiron290@gmail.com
+
+      <div class="flex items-center gap-4 text-slate-300">
+        <a href="mailto:tenochalbertogiron290@gmail.com" class="hover:text-googleBlue transition flex items-center gap-1.5 text-xs">
+          <svg class="w-3.5 h-3.5 text-googleBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <span class="font-mono">tenochalbertogiron290@gmail.com</span>
         </a>
-        <span class="text-slate-600">|</span>
-        <button id="quickUrlsBtn" class="text-googleBlue hover:underline flex items-center gap-1 font-medium">
+        <span class="text-slate-700">|</span>
+        <button id="quickUrlsBtn" class="text-googleBlue hover:underline flex items-center gap-1 font-semibold text-xs">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-          <span data-i18n="top_bar_urls">URLs para Google Play Console</span>
+          <span data-i18n="top_bar_urls">URLs Oficiales Play Console</span>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- MAIN NAVIGATION -->
-  <header class="bg-darkCard/80 border-b border-darkBorder sticky top-9 z-40 backdrop-blur-lg">
+  <!-- MAIN NAVIGATION HEADER -->
+  <header class="bg-darkCard/80 border-b border-darkBorder sticky top-10 z-40 backdrop-blur-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Developer Brand -->
       <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-googleBlue via-sparkPurple to-googleGreen p-0.5 shadow-lg shadow-googleBlue/20 flex items-center justify-center">
-          <div class="w-full h-full bg-darkBg rounded-[10px] flex items-center justify-center font-bold text-white text-lg">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-googleBlue via-sparkPurple to-googleGreen p-0.5 shadow-lg shadow-googleBlue/20">
+          <div class="w-full h-full bg-darkBg rounded-[10px] flex items-center justify-center font-black text-white text-lg tracking-wider">
             TG
           </div>
         </div>
         <div>
-          <span class="font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-googleBlue transition">Tenoch Girón</span>
-          <span class="text-xs block text-slate-400 font-medium -mt-1">AI & Mobile Studio</span>
+          <span class="font-extrabold text-base sm:text-lg tracking-tight text-white group-hover:text-googleBlue transition">Tenoch Girón</span>
+          <span class="text-[11px] block text-slate-400 font-medium -mt-1">AI & Mobile Studio</span>
         </div>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+      <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-300">
         <a href="#apps" class="hover:text-googleBlue transition" data-i18n="nav_apps">Ecosistema Apps</a>
-        <a href="#sandbox" class="hover:text-googleBlue transition" data-i18n="nav_sandbox">Laboratorio en Vivo</a>
+        <a href="#showcase" class="hover:text-googleBlue transition" data-i18n="nav_showcase">Vista Previa Móvil</a>
         <a href="#portfolio" class="hover:text-googleBlue transition" data-i18n="nav_portfolio">Proyectos IA & Datos</a>
         <a href="#trajectory" class="hover:text-googleBlue transition" data-i18n="nav_trajectory">Trayectoria</a>
         <a href="#compliance" class="hover:text-googleBlue transition" data-i18n="nav_compliance">Privacidad & Play</a>
-        <a href="#data-deletion" class="hover:text-googleBlue transition text-amber-400" data-i18n="nav_deletion">Eliminar Datos</a>
-        <a href="#app-ads" class="hover:text-googleBlue transition text-emerald-400">app-ads.txt</a>
+        <a href="#data-deletion" class="hover:text-amber-400 transition" data-i18n="nav_deletion">Eliminar Datos</a>
+        <a href="#app-ads" class="hover:text-emerald-400 transition">app-ads.txt</a>
       </nav>
 
-      <!-- Action Buttons -->
+      <!-- Language & Theme Actions -->
       <div class="flex items-center gap-3">
         <!-- Language Switcher -->
-        <button id="langToggleBtn" class="px-2.5 py-1.5 rounded-lg border border-slate-700 bg-slate-900/60 text-xs font-semibold hover:border-googleBlue transition flex items-center gap-1.5 text-slate-200">
+        <button id="langToggleBtn" class="px-2.5 py-1.5 rounded-lg border border-slate-700 bg-slate-900/80 text-xs font-bold hover:border-googleBlue transition flex items-center gap-1.5 text-slate-200">
           <span id="currentLangLabel">ES</span>
           <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
 
         <!-- Theme Toggle -->
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2 rounded-lg border border-slate-700 bg-slate-900/60 text-slate-300 hover:text-white hover:border-googleBlue transition">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2 rounded-lg border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:border-googleBlue transition">
           <svg id="themeIconDark" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
           <svg id="themeIconLight" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
         </button>
 
-        <!-- Primary Contact -->
-        <a href="mailto:tenochalbertogiron290@gmail.com" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-googleBlue hover:bg-blue-600 text-white shadow-md shadow-blue-500/20 transition">
+        <!-- Contact Email Link -->
+        <a href="mailto:tenochalbertogiron290@gmail.com" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-googleBlue hover:bg-sky-500 text-slate-950 shadow-md transition">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-          <span data-i18n="nav_contact_btn">Contacto</span>
+          <span data-i18n="nav_contact_btn">Contacto Oficial</span>
         </a>
 
-        <!-- Mobile Menu Trigger -->
-        <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg border border-slate-700 bg-slate-900/60 text-slate-300">
+        <!-- Mobile Drawer Menu Trigger -->
+        <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg border border-slate-700 bg-slate-900/80 text-slate-300">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Nav Drawer -->
+    <!-- Mobile Drawer Menu -->
     <div id="mobileMenu" class="hidden lg:hidden border-t border-darkBorder bg-darkCard/95 px-4 pt-3 pb-6 space-y-2">
-      <a href="#apps" class="block py-2 text-sm font-medium hover:text-googleBlue" data-i18n="nav_apps">Ecosistema Apps</a>
-      <a href="#sandbox" class="block py-2 text-sm font-medium hover:text-googleBlue" data-i18n="nav_sandbox">Laboratorio en Vivo</a>
-      <a href="#portfolio" class="block py-2 text-sm font-medium hover:text-googleBlue" data-i18n="nav_portfolio">Proyectos IA & Datos</a>
-      <a href="#trajectory" class="block py-2 text-sm font-medium hover:text-googleBlue" data-i18n="nav_trajectory">Trayectoria</a>
-      <a href="#compliance" class="block py-2 text-sm font-medium hover:text-googleBlue" data-i18n="nav_compliance">Privacidad & Play</a>
-      <a href="#data-deletion" class="block py-2 text-sm font-medium text-amber-400" data-i18n="nav_deletion">Eliminar Datos</a>
-      <a href="#app-ads" class="block py-2 text-sm font-medium text-emerald-400">app-ads.txt</a>
+      <a href="#apps" class="block py-2 text-sm font-semibold hover:text-googleBlue" data-i18n="nav_apps">Ecosistema Apps</a>
+      <a href="#showcase" class="block py-2 text-sm font-semibold hover:text-googleBlue" data-i18n="nav_showcase">Vista Previa Móvil</a>
+      <a href="#portfolio" class="block py-2 text-sm font-semibold hover:text-googleBlue" data-i18n="nav_portfolio">Proyectos IA & Datos</a>
+      <a href="#trajectory" class="block py-2 text-sm font-semibold hover:text-googleBlue" data-i18n="nav_trajectory">Trayectoria</a>
+      <a href="#compliance" class="block py-2 text-sm font-semibold hover:text-googleBlue" data-i18n="nav_compliance">Privacidad & Play</a>
+      <a href="#data-deletion" class="block py-2 text-sm font-semibold text-amber-400" data-i18n="nav_deletion">Eliminar Datos</a>
+      <a href="#app-ads" class="block py-2 text-sm font-semibold text-emerald-400">app-ads.txt</a>
       <div class="pt-2 border-t border-slate-800">
-        <a href="mailto:tenochalbertogiron290@gmail.com" class="block text-center py-2 rounded-lg bg-googleBlue text-white text-sm font-semibold">
+        <a href="mailto:tenochalbertogiron290@gmail.com" class="block text-center py-2.5 rounded-lg bg-googleBlue text-slate-950 text-xs font-bold">
           tenochalbertogiron290@gmail.com
         </a>
       </div>
@@ -163,34 +191,32 @@
   </header>
 
   <!-- HERO SECTION / DEVELOPER IDENTITY -->
-  <section id="hero" class="relative overflow-hidden py-16 sm:py-24 border-b border-darkBorder bg-gradient-to-b from-darkBg via-darkCard/50 to-darkBg">
-    <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#4285F4_1px,transparent_1px)] [background-size:24px_24px]"></div>
-    
+  <section id="hero" class="relative overflow-hidden py-16 sm:py-24 border-b border-darkBorder bg-gradient-to-b from-darkBg via-darkCard/40 to-darkBg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <!-- Left: Verified Identity & Mission -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-googleBlue/10 text-googleBlue border border-googleBlue/20">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-googleBlue/10 text-googleBlue border border-googleBlue/20">
             <svg class="w-4 h-4 text-googleBlue" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v4h-2z"/></svg>
-            <span data-i18n="hero_badge">Google Developer Program Official Profile</span>
+            <span data-i18n="hero_badge">Perfil Oficial de Desarrollador Verificado</span>
           </div>
 
           <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Ing. Tenoch Alberto Girón Acosta
           </h1>
           
-          <p class="text-lg sm:text-xl text-googleBlue font-semibold" data-i18n="hero_studio_tag">
+          <p class="text-lg sm:text-xl text-googleBlue font-bold" data-i18n="hero_studio_tag">
             Tenoch Girón | AI & Mobile Studio
           </p>
 
           <!-- Philosophy Quote -->
-          <blockquote class="p-4 rounded-xl bg-slate-900/60 border-l-4 border-googleBlue text-slate-300 italic text-sm sm:text-base leading-relaxed">
+          <blockquote class="p-4 rounded-xl bg-slate-900/80 border-l-4 border-googleBlue text-slate-300 italic text-xs sm:text-sm leading-relaxed">
             <span data-i18n="hero_quote">"Mi meta es humanizar la Inteligencia Artificial y el desarrollo móvil: transformar algoritmos complejos —desde redes neuronales, visión por computadora y transformadores hasta telemetría IoT— en aplicaciones intuitivas, accesibles y con impacto real en la vida cotidiana, la salud emocional y la educación pública de excelencia."</span>
           </blockquote>
 
           <!-- Verified Credentials Chips -->
-          <div class="flex flex-wrap gap-2 pt-2 text-xs font-medium text-slate-300">
+          <div class="flex flex-wrap gap-2 pt-1 text-xs font-medium text-slate-300">
             <span class="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center gap-1.5">
               <span class="w-2 h-2 rounded-full bg-googleBlue"></span> ESCOM — IPN (Ing. en Sistemas)
             </span>
@@ -207,72 +233,72 @@
 
           <!-- Quick CTAs -->
           <div class="flex flex-wrap items-center gap-4 pt-4">
-            <a href="#apps" class="px-5 py-3 rounded-xl bg-gradient-to-r from-googleBlue to-blue-600 text-white font-semibold text-sm shadow-lg shadow-googleBlue/25 hover:from-blue-600 hover:to-googleBlue transition flex items-center gap-2">
+            <a href="#apps" class="px-5 py-3 rounded-xl bg-gradient-to-r from-googleBlue to-sky-500 text-slate-950 font-extrabold text-xs shadow-lg shadow-googleBlue/20 hover:scale-105 transition flex items-center gap-2">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a1.95 1.95 0 01-.61-1.396V3.21c0-.528.223-1.01.609-1.396zm11.603 11.603l2.84 2.84-12.04 6.945 9.2-9.785zm0-2.834l-9.2-9.785 12.04 6.945-2.84 2.84zm1.414 1.417l3.655 2.11c1.026.592 1.026 1.558 0 2.15l-3.655 2.11-2.434-2.435 2.434-1.935z"/></svg>
-              <span data-i18n="hero_cta_apps">Explorar Apps Google Play</span>
+              <span data-i18n="hero_cta_apps">Ver Aplicaciones Publicadas</span>
             </a>
-            <a href="#sandbox" class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-googleBlue text-slate-200 font-semibold text-sm transition flex items-center gap-2">
-              <svg class="w-4 h-4 text-sparkPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-              <span data-i18n="hero_cta_sandbox">Probar Sandbox en Vivo</span>
+            <a href="#showcase" class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-googleBlue text-slate-200 font-bold text-xs transition flex items-center gap-2">
+              <svg class="w-4 h-4 text-sparkPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+              <span data-i18n="hero_cta_showcase">Vista Previa Móvil</span>
             </a>
-            <a href="#compliance" class="px-4 py-3 rounded-xl bg-slate-900/70 border border-slate-700 hover:border-emerald-500 text-slate-300 font-semibold text-sm transition flex items-center gap-1.5 text-xs">
+            <a href="#compliance" class="px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 hover:border-emerald-400 text-slate-300 font-semibold text-xs transition flex items-center gap-1.5">
               <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              <span data-i18n="hero_cta_compliance">Auditoría Play Console</span>
+              <span data-i18n="hero_cta_compliance">Normativa Play Console</span>
             </a>
           </div>
         </div>
 
-        <!-- Right: Official Developer Identity Card (Play Console Standard) -->
+        <!-- Right: Official Developer Identity Card -->
         <div class="lg:col-span-5">
-          <div class="glass-card rounded-2xl p-6 sm:p-8 relative shadow-2xl">
+          <div class="glass-card rounded-2xl p-6 sm:p-8 relative shadow-2xl border border-slate-700/80">
             <div class="flex items-start justify-between pb-6 border-b border-slate-800">
               <div class="flex items-center gap-4">
                 <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-googleBlue via-sparkPurple to-googleGreen p-0.5 shadow-md">
-                  <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                  <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">
                     TG
                   </div>
                 </div>
                 <div>
-                  <h3 class="font-bold text-lg text-white">Tenoch Alberto Girón</h3>
-                  <p class="text-xs text-emerald-400 flex items-center gap-1 mt-0.5">
+                  <h3 class="font-extrabold text-lg text-white">Tenoch Alberto Girón</h3>
+                  <p class="text-xs text-emerald-400 font-semibold flex items-center gap-1 mt-0.5">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span data-i18n="card_status">Identidad y Desarrollador Verificado</span>
                   </p>
                   <p class="text-[11px] text-slate-400 mt-1">Google Play Console & AdMob</p>
                 </div>
               </div>
-              <span class="text-xs font-mono px-2 py-1 bg-slate-800 rounded text-slate-300">MX-2026</span>
+              <span class="text-xs font-mono px-2.5 py-1 bg-slate-800 rounded-md text-slate-300 font-bold">MX-2026</span>
             </div>
 
             <!-- Details List for Google Reviewers -->
             <div class="py-5 space-y-3.5 text-xs">
               <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
                 <span class="text-slate-400" data-i18n="card_field_email">Correo de Soporte Oficial:</span>
-                <span class="font-mono text-slate-200 select-all">tenochalbertogiron290@gmail.com</span>
+                <span class="font-mono text-slate-200 select-all font-semibold">tenochalbertogiron290@gmail.com</span>
               </div>
               <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
                 <span class="text-slate-400" data-i18n="card_field_location">Región de Operación:</span>
-                <span class="text-slate-200 text-right">Edoméx / ZMVM y Toluca, México</span>
+                <span class="text-slate-200 text-right font-medium">Edoméx / ZMVM y Toluca, México</span>
               </div>
               <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
                 <span class="text-slate-400" data-i18n="card_field_license">Cumplimiento Play Data Safety:</span>
-                <span class="text-emerald-400 font-semibold flex items-center gap-1">
+                <span class="text-emerald-400 font-bold flex items-center gap-1">
                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                   100% Conforme y Activo
                 </span>
               </div>
               <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
                 <span class="text-slate-400" data-i18n="card_field_admob">Google AdMob app-ads.txt:</span>
-                <span class="text-googleBlue font-mono font-medium">/app-ads.txt Verificado</span>
+                <span class="text-googleBlue font-mono font-bold">/app-ads.txt Verificado</span>
               </div>
               <div class="flex justify-between items-center py-1">
                 <span class="text-slate-400" data-i18n="card_field_apps">Apps en Ecosistema:</span>
-                <span class="text-slate-200 font-semibold">3 Publicadas / Listas para Play</span>
+                <span class="text-slate-200 font-bold">3 Publicadas / Listas para Play</span>
               </div>
             </div>
 
             <div class="pt-2">
-              <a href="#data-deletion" class="w-full block text-center py-2.5 px-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 text-xs font-semibold transition">
+              <a href="#data-deletion" class="w-full block text-center py-2.5 px-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 text-xs font-bold transition">
                 <span data-i18n="card_deletion_btn">Acceder al Protocolo de Eliminación de Datos</span>
               </a>
             </div>
@@ -283,7 +309,7 @@
     </div>
   </section>
 
-  <!-- APPS SHOWCASE (GOOGLE PLAY STORE STYLE) -->
+  <!-- OFFICIAL APPS SHOWCASE (GOOGLE PLAY STORE CARDS) -->
   <section id="apps" class="py-16 sm:py-24 border-b border-darkBorder bg-darkBg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -292,7 +318,7 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2" data-i18n="apps_section_title">
           Aplicaciones Móviles en Google Play & AI Studio
         </h2>
-        <p class="text-slate-400 mt-3 text-sm sm:text-base" data-i18n="apps_section_desc">
+        <p class="text-slate-400 mt-3 text-xs sm:text-sm" data-i18n="apps_section_desc">
           Desarrolladas bajo estándares de Accesibilidad DUA, Privacidad desde el Diseño (Privacy-First) e Inteligencia Artificial Multimodal.
         </p>
       </div>
@@ -300,21 +326,21 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- APP 1: ChefMágico -->
-        <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-googleBlue/50 transition-all duration-300 flex flex-col group">
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-amber-500/50 transition-all duration-300 flex flex-col group">
           <div class="p-6 border-b border-slate-800 bg-gradient-to-br from-amber-500/10 to-transparent">
             <div class="flex items-start justify-between">
               <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-3xl shadow-lg">
                 🍳
               </div>
               <div class="flex flex-col items-end gap-1">
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                   Everyone / Todos
                 </span>
-                <span class="text-[10px] text-slate-400">Estilo de Vida & IA</span>
+                <span class="text-[10px] text-slate-400 font-medium">Estilo de Vida & IA</span>
               </div>
             </div>
-            <h3 class="text-xl font-bold text-white mt-4 group-hover:text-amber-400 transition">ChefMágico</h3>
-            <p class="text-xs text-amber-400/90 font-medium">Gastronomía Inteligente y Accesible con IA</p>
+            <h3 class="text-xl font-extrabold text-white mt-4 group-hover:text-amber-400 transition">ChefMágico</h3>
+            <p class="text-xs text-amber-400 font-semibold">Gastronomía Inteligente y Accesible con IA</p>
           </div>
 
           <div class="p-6 space-y-4 flex-1 flex flex-col justify-between text-xs text-slate-300">
@@ -322,7 +348,7 @@
               Asistente culinario impulsado por IA generativa y visión multimodal que transforma los ingredientes de tu hogar en menús saludables sin desperdicio.
             </p>
 
-            <!-- Features -->
+            <!-- Features list -->
             <div class="space-y-2 py-2">
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
@@ -343,17 +369,17 @@
             </div>
 
             <!-- Permissions Disclosure -->
-            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400">
-              <strong class="text-slate-300 block mb-1">Permisos Móviles Auditados:</strong>
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
+              <strong class="text-slate-200 block mb-1">Permisos Móviles Auditados:</strong>
               • Cámara: Reconocimiento efímero de insumos (sin almacenamiento externo).<br>
               • Micrófono: Órdenes locales por voz del temporizador en cocina.
             </div>
 
             <div class="pt-4 flex items-center gap-3">
-              <button onclick="launchSandbox('chef')" class="flex-1 py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-center transition flex items-center justify-center gap-1.5 shadow-md shadow-amber-500/20">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span data-i18n="btn_try_demo">Probar Demo Interactiva</span>
-              </button>
+              <a href="#showcase-chef" onclick="selectShowcase('chef')" class="flex-1 py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-center transition flex items-center justify-center gap-1.5 shadow-md shadow-amber-500/20">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>Ver Muestra de Pantalla</span>
+              </a>
               <a href="#privacy-chef" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Política de Privacidad">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               </a>
@@ -369,14 +395,14 @@
                 🧠
               </div>
               <div class="flex flex-col items-end gap-1">
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                   Everyone / Todos
                 </span>
-                <span class="text-[10px] text-slate-400">Salud & Psicología</span>
+                <span class="text-[10px] text-slate-400 font-medium">Salud & Psicología</span>
               </div>
             </div>
-            <h3 class="text-xl font-bold text-white mt-4 group-hover:text-purple-400 transition">Emociona</h3>
-            <p class="text-xs text-sparkPurple font-medium">Exploración Psicoeducativa y Bienestar</p>
+            <h3 class="text-xl font-extrabold text-white mt-4 group-hover:text-purple-400 transition">Emociona</h3>
+            <p class="text-xs text-sparkPurple font-semibold">Exploración Psicoeducativa y Bienestar</p>
           </div>
 
           <div class="p-6 space-y-4 flex-1 flex flex-col justify-between text-xs text-slate-300">
@@ -384,7 +410,7 @@
               Herramienta interactiva de autoconocimiento emocional, estilos de apego y actividades reflexivas basadas en evidencia psicoeducativa y el Modelo ABC.
             </p>
 
-            <!-- Features -->
+            <!-- Features list -->
             <div class="space-y-2 py-2">
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-purple-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
@@ -405,17 +431,17 @@
             </div>
 
             <!-- Permissions Disclosure -->
-            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400">
-              <strong class="text-slate-300 block mb-1">Privacidad & Deslinde Médico:</strong>
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
+              <strong class="text-slate-200 block mb-1">Privacidad & Deslinde Médico:</strong>
               • Almacenamiento local cifrado. No comparte diagnósticos ni datos sensibles.<br>
               • Herramienta psicoeducativa de orientación formativa; no sustituye terapia clínica.
             </div>
 
             <div class="pt-4 flex items-center gap-3">
-              <button onclick="launchSandbox('emociona')" class="flex-1 py-2.5 px-4 rounded-xl bg-sparkPurple hover:bg-purple-600 text-white font-bold text-center transition flex items-center justify-center gap-1.5 shadow-md shadow-purple-500/20">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span data-i18n="btn_try_demo">Probar Demo Interactiva</span>
-              </button>
+              <a href="#showcase-emociona" onclick="selectShowcase('emociona')" class="flex-1 py-2.5 px-4 rounded-xl bg-sparkPurple hover:bg-purple-600 text-white font-bold text-center transition flex items-center justify-center gap-1.5 shadow-md shadow-purple-500/20">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>Ver Muestra de Pantalla</span>
+              </a>
               <a href="#privacy-emociona" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Política de Privacidad">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               </a>
@@ -431,14 +457,14 @@
                 🏫
               </div>
               <div class="flex flex-col items-end gap-1">
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                   Everyone / Todos
                 </span>
-                <span class="text-[10px] text-slate-400">Educación & IA Predictiva</span>
+                <span class="text-[10px] text-slate-400 font-medium">Educación & IA Predictiva</span>
               </div>
             </div>
-            <h3 class="text-xl font-bold text-white mt-4 group-hover:text-blue-400 transition">Bienestar CETis 23</h3>
-            <p class="text-xs text-googleBlue font-medium">Sistema Integral y Alerta Temprana</p>
+            <h3 class="text-xl font-extrabold text-white mt-4 group-hover:text-sky-400 transition">Bienestar CETis 23</h3>
+            <p class="text-xs text-googleBlue font-semibold">Sistema Integral y Alerta Temprana</p>
           </div>
 
           <div class="p-6 space-y-4 flex-1 flex flex-col justify-between text-xs text-slate-300">
@@ -446,7 +472,7 @@
               Plataforma de acompañamiento socioemocional, clima escolar y prevención de deserción para el CETis No. 23 "José Vicente Villada".
             </p>
 
-            <!-- Features -->
+            <!-- Features list -->
             <div class="space-y-2 py-2">
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-googleBlue shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
@@ -467,17 +493,17 @@
             </div>
 
             <!-- Permissions Disclosure -->
-            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400">
-              <strong class="text-slate-300 block mb-1">Protección de Datos Institucional:</strong>
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
+              <strong class="text-slate-200 block mb-1">Protección de Datos Institucional:</strong>
               • Métricas agregadas anónimas para tutorías académicas.<br>
               • Sin monetización ni cesión a redes publicitarias de terceros.
             </div>
 
             <div class="pt-4 flex items-center gap-3">
-              <button onclick="launchSandbox('cetis')" class="flex-1 py-2.5 px-4 rounded-xl bg-googleBlue hover:bg-blue-600 text-white font-bold text-center transition flex items-center justify-center gap-1.5 shadow-md shadow-blue-500/20">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span data-i18n="btn_try_demo">Probar Demo Interactiva</span>
-              </button>
+              <a href="#showcase-cetis" onclick="selectShowcase('cetis')" class="flex-1 py-2.5 px-4 rounded-xl bg-googleBlue hover:bg-sky-500 text-slate-950 font-bold text-center transition flex items-center justify-center gap-1.5 shadow-md shadow-sky-500/20">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>Ver Muestra de Pantalla</span>
+              </a>
               <a href="#privacy-cetis" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Política de Privacidad">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               </a>
@@ -490,397 +516,119 @@
     </div>
   </section>
 
-  <!-- LIVE SANDBOX / LABORATORIO INTERACTIVO EN VIVO -->
-  <section id="sandbox" class="py-16 sm:py-24 border-b border-darkBorder bg-slate-950/70">
+  <!-- INTERACTIVE MOBILE APP SHOWCASE (2026 HIGH-FIDELITY READ-ONLY PREVIEW) -->
+  <section id="showcase" class="py-16 sm:py-24 border-b border-darkBorder bg-slate-950/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-sparkPurple" data-i18n="sandbox_tag">Laboratorio en Vivo (Interactive Sandbox)</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1" data-i18n="sandbox_title">
-            Prueba las Mini-Demos de las Aplicaciones
+          <span class="text-xs font-bold uppercase tracking-wider text-sparkPurple">Demostración Visual Regulada</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">
+            Vista Previa e Interfaz Móvil
           </h2>
-          <p class="text-slate-400 text-sm mt-2 max-w-2xl" data-i18n="sandbox_desc">
-            Interactúa directamente con la lógica funcional de las aplicaciones insignia de Tenoch Girón: escanea ingredientes, explora la rueda emocional o simula alertas institucionales.
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 max-w-2xl">
+            Inspecciona las maquetas de pantalla de las aplicaciones desarrolladas por Tenoch Girón para verificar su arquitectura visual y el cumplimiento de interfaz de usuario en Google Play.
           </p>
         </div>
 
-        <!-- Sandbox Tabs -->
-        <div class="flex flex-wrap gap-2 p-1 bg-slate-900 border border-slate-800 rounded-xl">
-          <button id="tabChefBtn" onclick="switchSandboxTab('chef')" class="px-4 py-2 rounded-lg text-xs font-semibold bg-amber-500 text-slate-950 shadow transition flex items-center gap-1.5">
+        <!-- Showcase Selector Tabs -->
+        <div class="flex flex-wrap gap-1 p-1 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold">
+          <button id="showcaseTabChef" onclick="selectShowcase('chef')" class="px-4 py-2 rounded-lg bg-amber-500 text-slate-950 shadow transition flex items-center gap-1.5">
             <span>🍳</span> ChefMágico
           </button>
-          <button id="tabEmocionaBtn" onclick="switchSandboxTab('emociona')" class="px-4 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5">
+          <button id="showcaseTabEmociona" onclick="selectShowcase('emociona')" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1.5">
             <span>🧠</span> Emociona
           </button>
-          <button id="tabCetisBtn" onclick="switchSandboxTab('cetis')" class="px-4 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5">
+          <button id="showcaseTabCetis" onclick="selectShowcase('cetis')" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1.5">
             <span>🏫</span> Bienestar CETis 23
           </button>
         </div>
       </div>
 
-      <!-- SANDBOX CONTENT 1: CHEFMÁGICO -->
-      <div id="sandboxChef" class="glass-card rounded-2xl p-6 sm:p-8 border border-amber-500/20 shadow-2xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          <!-- Controls & Virtual Pantry -->
-          <div class="lg:col-span-6 space-y-6">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-              <div>
-                <h3 class="font-bold text-lg text-white flex items-center gap-2">
-                  <span>🍳</span> Despensa Virtual & Escáner Multimodal
-                </h3>
-                <p class="text-xs text-slate-400">Selecciona ingredientes disponibles en tu cocina</p>
-              </div>
-              <!-- DUA Large Text Switch -->
-              <label class="flex items-center gap-2 cursor-pointer select-none">
-                <span class="text-xs font-semibold text-amber-400">Modo DUA (Lectura Grande)</span>
-                <input type="checkbox" id="chefDuaToggle" class="sr-only peer" onchange="toggleChefDua()">
-                <div class="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
-              </label>
-            </div>
-
-            <!-- Pantry Chips -->
-            <div>
-              <span class="text-xs font-semibold text-slate-300 block mb-2">1. Selecciona ingredientes de tu refrigerador:</span>
-              <div class="flex flex-wrap gap-2" id="pantryChips">
-                <!-- Dynamically populated or static togglable chips -->
-                <button onclick="toggleIngredient(this, 'Pechuga de Pollo')" class="pantry-chip px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800/80 hover:border-amber-400 text-slate-200 transition active:scale-95" data-ing="Pechuga de Pollo">🍗 Pollo</button>
-                <button onclick="toggleIngredient(this, 'Jitomate')" class="pantry-chip px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800/80 hover:border-amber-400 text-slate-200 transition active:scale-95" data-ing="Jitomate">🍅 Jitomate</button>
-                <button onclick="toggleIngredient(this, 'Aguacate')" class="pantry-chip px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800/80 hover:border-amber-400 text-slate-200 transition active:scale-95" data-ing="Aguacate">🥑 Aguacate</button>
-                <button onclick="toggleIngredient(this, 'Arroz')" class="pantry-chip px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800/80 hover:border-amber-400 text-slate-200 transition active:scale-95" data-ing="Arroz">🍚 Arroz</button>
-                <button onclick="toggleIngredient(this, 'Queso Oaxaca')" class="pantry-chip px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800/80 hover:border-amber-400 text-slate-200 transition active:scale-95" data-ing="Queso Oaxaca">🧀 Queso Oaxaca</button>
-                <button onclick="toggleIngredient(this, 'Frijoles')" class="pantry-chip px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800/80 hover:border-amber-400 text-slate-200 transition active:scale-95" data-ing="Frijoles">🫘 Frijoles</button>
-                <button onclick="toggleIngredient(this, 'Calabacitas')" class="pantry-chip px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800/80 hover:border-amber-400 text-slate-200 transition active:scale-95" data-ing="Calabacitas">🥒 Calabacitas</button>
-                <button onclick="toggleIngredient(this, 'Champiñones')" class="pantry-chip px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800/80 hover:border-amber-400 text-slate-200 transition active:scale-95" data-ing="Champiñones">🍄 Champiñones</button>
+      <!-- MOCKUP CONTAINER -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Interactive Simulated Smartphone Frame -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="mockup-phone w-[280px] sm:w-[310px] h-[580px] relative p-4 flex flex-col justify-between border-4 border-slate-800">
+            
+            <!-- Phone Notch & Status Bar -->
+            <div class="flex items-center justify-between text-[10px] text-slate-400 font-mono pt-1 px-2 border-b border-slate-800/60 pb-2">
+              <span class="font-bold text-white">09:41</span>
+              <div class="w-16 h-3.5 bg-slate-900 rounded-full mx-auto border border-slate-800"></div>
+              <div class="flex items-center gap-1">
+                <span>5G</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
               </div>
             </div>
 
-            <!-- Preferences -->
-            <div>
-              <span class="text-xs font-semibold text-slate-300 block mb-2">2. Preferencia de platillo:</span>
-              <div class="grid grid-cols-3 gap-2" id="prefButtons">
-                <button onclick="selectChefPref(this, 'rapido')" class="chef-pref-btn active px-3 py-2 rounded-xl text-xs font-medium border border-amber-500 bg-amber-500/20 text-amber-300 text-center transition">
-                  ⚡ Rápido (&lt; 20 min)
-                </button>
-                <button onclick="selectChefPref(this, 'saludable')" class="chef-pref-btn px-3 py-2 rounded-xl text-xs font-medium border border-slate-700 bg-slate-800/60 text-slate-300 text-center transition">
-                  🥗 Saludable / Fit
-                </button>
-                <button onclick="selectChefPref(this, 'mexicano')" class="chef-pref-btn px-3 py-2 rounded-xl text-xs font-medium border border-slate-700 bg-slate-800/60 text-slate-300 text-center transition">
-                  🌶️ Mexicano Sabor
-                </button>
-              </div>
-            </div>
-
-            <!-- Action Button -->
-            <button onclick="generateRecipe()" class="w-full py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-sm shadow-lg shadow-amber-500/25 transition flex items-center justify-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-              <span>Generar Receta Personalizada con IA</span>
-            </button>
-          </div>
-
-          <!-- Generated Recipe & Timer -->
-          <div class="lg:col-span-6 bg-slate-900/90 rounded-xl p-6 border border-slate-800 space-y-6" id="recipeDisplayCard">
-            <div class="flex items-start justify-between">
-              <div>
-                <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider" id="recipeTypeLabel">Receta Generada con Éxito</span>
-                <h4 class="text-xl font-bold text-white mt-1" id="recipeTitle">Fajitas Rápidas al Sartén con Aguacate y Queso</h4>
-                <p class="text-xs text-slate-400 mt-0.5" id="recipeMeta">⏱️ 18 minutos • 🔥 380 kcal • 4 porciones</p>
-              </div>
-              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Sin Desperdicio</span>
-            </div>
-
-            <!-- Recipe Steps -->
-            <div class="space-y-3 text-xs text-slate-300" id="recipeBodyContent">
-              <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
-                <strong class="text-amber-400 block mb-1">Ingredientes Utilizados:</strong>
-                <p id="recipeIngredientsList">Pechuga de Pollo en tiras, Jitomate en cubos, Aguacate en rebanadas, Queso Oaxaca deshebrado, un toque de sal y pimienta.</p>
-              </div>
-              <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
-                <strong class="text-amber-400 block mb-1">Preparación Paso a Paso:</strong>
-                <ol class="list-decimal list-inside space-y-1.5" id="recipeStepsList">
-                  <li>Sella el pollo en un sartén precalentado a fuego medio durante 8 minutos hasta dorar.</li>
-                  <li>Agrega el jitomate y las calabacitas salteando por 5 minutos más.</li>
-                  <li>Coloca el queso Oaxaca encima y apaga el fuego para que gratine con el calor residual.</li>
-                  <li>Sirve con las rebanadas frescas de aguacate por encima.</li>
-                </ol>
-              </div>
-            </div>
-
-            <!-- LIVE COOKING TIMER -->
-            <div class="p-4 rounded-xl bg-slate-950 border border-amber-500/30 flex items-center justify-between">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full border-2 border-amber-500 flex items-center justify-center font-mono font-bold text-amber-400 text-lg shadow-inner">
-                  ⏱️
+            <!-- Dynamic Screen Content -->
+            <div id="mockupScreenContent" class="flex-1 py-4 overflow-hidden flex flex-col justify-between text-xs space-y-3">
+              <!-- Default Content: ChefMágico -->
+              <div class="space-y-3 animate-fadeIn">
+                <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30">
+                  <span class="text-[10px] font-bold text-amber-400 uppercase">Escáner de Nevera con IA</span>
+                  <div class="font-bold text-white text-sm mt-0.5">Ingredientes Detectados: 4</div>
+                  <p class="text-[11px] text-slate-300 mt-1">Pollo, Jitomate, Aguacate, Queso Oaxaca</p>
                 </div>
-                <div>
-                  <span class="text-[11px] text-slate-400 uppercase font-semibold">Temporizador Manos Libres</span>
-                  <div class="font-mono text-2xl font-black text-white tracking-wider" id="timerDisplay">18:00</div>
+
+                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+                  <div class="flex justify-between items-center text-[10px]">
+                    <span class="text-amber-400 font-bold">Receta Generada</span>
+                    <span class="text-slate-400">18 min</span>
+                  </div>
+                  <div class="font-bold text-white">Fajitas al Sartén Gratinated</div>
+                  <p class="text-[10px] text-slate-400 leading-tight">1. Sellar pechuga en tiras.<br>2. Añadir verdura y gratinar queso.<br>3. Servir con aguacate fresco.</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-950 border border-amber-500/40 text-center">
+                  <span class="text-[10px] text-slate-400 uppercase font-semibold">Temporizador Culinario</span>
+                  <div class="font-mono text-xl font-black text-amber-400">18:00</div>
                 </div>
               </div>
+            </div>
 
-              <div class="flex items-center gap-2">
-                <button onclick="startTimer()" id="timerStartBtn" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-bold transition">Iniciar</button>
-                <button onclick="pauseTimer()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition">Pausa</button>
-                <button onclick="resetTimer(1080)" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 text-xs font-medium transition">Reiniciar</button>
-              </div>
+            <!-- Home Bar Indicator -->
+            <div class="pt-2 text-center">
+              <div class="w-28 h-1 bg-slate-700 rounded-full mx-auto"></div>
             </div>
 
           </div>
-
         </div>
-      </div>
 
-      <!-- SANDBOX CONTENT 2: EMOCIONA -->
-      <div id="sandboxEmociona" class="hidden glass-card rounded-2xl p-6 sm:p-8 border border-sparkPurple/20 shadow-2xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          <!-- Rueda de Emociones & Modelo ABC -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="border-b border-slate-800 pb-4">
-              <h3 class="font-bold text-lg text-white flex items-center gap-2">
-                <span>🧠</span> Rueda Interactiva de Emociones Multinivel
-              </h3>
-              <p class="text-xs text-slate-400">Haz clic en un núcleo emocional primario para explorar matices y la actividad del Modelo ABC</p>
-            </div>
-
-            <!-- 6 Emotional Cores -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <button onclick="selectEmotion('alegria', 'Alegría', '😊', ['Gratitud', 'Esperanza', 'Entusiasmo', 'Orgullo'], '¿Qué logro o momento positivo viviste hoy que activó esta satisfacción?')" class="emotion-core-btn active p-3 rounded-xl border border-yellow-500/40 bg-yellow-500/10 text-left hover:scale-[1.02] transition">
-                <div class="text-2xl mb-1">😊</div>
-                <div class="font-bold text-sm text-yellow-400">Alegría</div>
-                <div class="text-[11px] text-slate-400">Vitalidad y conexión</div>
-              </button>
-
-              <button onclick="selectEmotion('calma', 'Calma / Serenidad', '🕊️', ['Paz', 'Confianza', 'Alivio', 'Aceptación'], '¿Qué condiciones de tu entorno te permitieron encontrar tranquilidad en este momento?')" class="emotion-core-btn p-3 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-left hover:scale-[1.02] transition">
-                <div class="text-2xl mb-1">🕊️</div>
-                <div class="font-bold text-sm text-emerald-400">Calma</div>
-                <div class="text-[11px] text-slate-400">Equilibrio interior</div>
-              </button>
-
-              <button onclick="selectEmotion('tristeza', 'Tristeza', '🌧️', ['Nostalgia', 'Desánimo', 'Duelo', 'Soledad'], '¿Qué pérdida, cambio o necesidad insatisfecha está señalando esta emoción?')" class="emotion-core-btn p-3 rounded-xl border border-blue-500/40 bg-blue-500/10 text-left hover:scale-[1.02] transition">
-                <div class="text-2xl mb-1">🌧️</div>
-                <div class="font-bold text-sm text-blue-400">Tristeza</div>
-                <div class="text-[11px] text-slate-400">Procesamiento y pausa</div>
-              </button>
-
-              <button onclick="selectEmotion('ira', 'Ira / Enojo', '🔥', ['Frustración', 'Indignación', 'Impotencia', 'Molestia'], '¿Qué límite personal sientes que fue vulnerado o qué situación percibes como injusta?')" class="emotion-core-btn p-3 rounded-xl border border-red-500/40 bg-red-500/10 text-left hover:scale-[1.02] transition">
-                <div class="text-2xl mb-1">🔥</div>
-                <div class="font-bold text-sm text-red-400">Ira</div>
-                <div class="text-[11px] text-slate-400">Defensa de límites</div>
-              </button>
-
-              <button onclick="selectEmotion('miedo', 'Miedo / Ansiedad', '⚡', ['Incertidumbre', 'Inseguridad', 'Alerta', 'Vulnerabilidad'], '¿Qué riesgo futuro estás anticipando y qué recurso real tienes hoy para protegerte?')" class="emotion-core-btn p-3 rounded-xl border border-purple-500/40 bg-purple-500/10 text-left hover:scale-[1.02] transition">
-                <div class="text-2xl mb-1">⚡</div>
-                <div class="font-bold text-sm text-purple-400">Miedo</div>
-                <div class="text-[11px] text-slate-400">Protección y cautela</div>
-              </button>
-
-              <button onclick="selectEmotion('sorpresa', 'Sorpresa / Asombro', '✨', ['Curiosidad', 'Desconcierto', 'Fascinación', 'Impacto'], '¿Qué suceso inesperado rompió tus expectativas previas y qué aprendiste de él?')" class="emotion-core-btn p-3 rounded-xl border border-cyan-500/40 bg-cyan-500/10 text-left hover:scale-[1.02] transition">
-                <div class="text-2xl mb-1">✨</div>
-                <div class="font-bold text-sm text-cyan-400">Sorpresa</div>
-                <div class="text-[11px] text-slate-400">Reorientación cognitiva</div>
-              </button>
-            </div>
-
-            <!-- Detail & ABC Reflection Prompt -->
-            <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-4">
-              <div class="flex items-center justify-between">
-                <h4 class="font-bold text-white text-sm flex items-center gap-2">
-                  <span id="activeEmotionEmoji">😊</span>
-                  <span id="activeEmotionTitle">Alegría</span>
-                </h4>
-                <span class="text-xs text-sparkPurple font-medium">Sub-emociones identificadas</span>
-              </div>
-
-              <!-- Secondary nuances chips -->
-              <div class="flex flex-wrap gap-2" id="emotionSubNuances">
-                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-200 text-xs border border-slate-700">Gratitud</span>
-                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-200 text-xs border border-slate-700">Esperanza</span>
-                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-200 text-xs border border-slate-700">Entusiasmo</span>
-                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-200 text-xs border border-slate-700">Orgullo</span>
-              </div>
-
-              <!-- ABC Prompt Question -->
-              <div class="p-3.5 rounded-lg bg-sparkPurple/10 border border-sparkPurple/20 text-xs space-y-2">
-                <strong class="text-sparkPurple font-semibold block">Pregunta Reflexiva del Modelo ABC:</strong>
-                <p class="text-slate-200 italic" id="emotionAbcPrompt">
-                  "¿Qué logro o momento positivo viviste hoy que activó esta satisfacción?"
-                </p>
-                <div class="pt-2">
-                  <input type="text" placeholder="Escribe tu reflexión breve aquí (procesamiento 100% local en tu dispositivo)..." class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sparkPurple">
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Muestra Interactiva de Test Psicoeducativo de 28 Reactivos -->
-          <div class="lg:col-span-5 bg-slate-900/90 rounded-xl p-6 border border-slate-800 space-y-6">
+        <!-- Feature Walkthrough & Technical Details -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-800 space-y-4" id="showcaseInfoCard">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
               <div>
-                <span class="text-[11px] font-bold text-sparkPurple uppercase">Evaluación Psicoeducativa</span>
-                <h4 class="font-bold text-white text-base">Muestra de Estilos de Apego</h4>
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-wider" id="mockupTag">Estilo de Vida & Gastronomía</span>
+                <h3 class="text-2xl font-extrabold text-white mt-1" id="mockupTitle">ChefMágico — Inteligencia Culinaria</h3>
               </div>
-              <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">3 / 28 reactivos</span>
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-slate-800 text-slate-300">Package Verified</span>
             </div>
 
-            <p class="text-xs text-slate-400">
-              Califica del 1 (Totalmente en desacuerdo) al 5 (Totalmente de acuerdo) cómo te identificas:
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" id="mockupDesc">
+              Esta pantalla simula el flujo de detección visual y generación instantánea de recetas sin desperdicio. La aplicación procesa los insumos efímeramente sin almacenar fotos personales en servidores remotos.
             </p>
 
-            <!-- Reactivos -->
-            <div class="space-y-4 text-xs">
-              <!-- Item 1 -->
-              <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60 space-y-2">
-                <span class="text-slate-200 block font-medium">1. "Me resulta fácil confiar en las personas y sentirme cómodo dependiendo de ellas."</span>
-                <div class="flex justify-between items-center text-[11px] text-slate-400 pt-1">
-                  <span>1 (Desacuerdo)</span>
-                  <div class="flex gap-2">
-                    <label class="cursor-pointer"><input type="radio" name="item1" value="1" class="text-sparkPurple" onchange="calcTestScore()"> 1</label>
-                    <label class="cursor-pointer"><input type="radio" name="item1" value="2" class="text-sparkPurple" onchange="calcTestScore()"> 2</label>
-                    <label class="cursor-pointer"><input type="radio" name="item1" value="3" class="text-sparkPurple" onchange="calcTestScore()" checked> 3</label>
-                    <label class="cursor-pointer"><input type="radio" name="item1" value="4" class="text-sparkPurple" onchange="calcTestScore()"> 4</label>
-                    <label class="cursor-pointer"><input type="radio" name="item1" value="5" class="text-sparkPurple" onchange="calcTestScore()"> 5</label>
-                  </div>
-                  <span>5 (De acuerdo)</span>
-                </div>
+            <div class="grid grid-cols-2 gap-4 pt-2 text-xs">
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block mb-1">Modelos de IA:</strong>
+                <span class="text-slate-400" id="mockupAiModel">Gemini Multimodal Vision + LLM Json Mode</span>
               </div>
-
-              <!-- Item 2 -->
-              <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60 space-y-2">
-                <span class="text-slate-200 block font-medium">2. "A menudo me preocupa que los demás no valoren mi compañía tanto como yo la de ellos."</span>
-                <div class="flex justify-between items-center text-[11px] text-slate-400 pt-1">
-                  <span>1 (Desacuerdo)</span>
-                  <div class="flex gap-2">
-                    <label class="cursor-pointer"><input type="radio" name="item2" value="1" class="text-sparkPurple" onchange="calcTestScore()"> 1</label>
-                    <label class="cursor-pointer"><input type="radio" name="item2" value="2" class="text-sparkPurple" onchange="calcTestScore()"> 2</label>
-                    <label class="cursor-pointer"><input type="radio" name="item2" value="3" class="text-sparkPurple" onchange="calcTestScore()" checked> 3</label>
-                    <label class="cursor-pointer"><input type="radio" name="item2" value="4" class="text-sparkPurple" onchange="calcTestScore()"> 4</label>
-                    <label class="cursor-pointer"><input type="radio" name="item2" value="5" class="text-sparkPurple" onchange="calcTestScore()"> 5</label>
-                  </div>
-                  <span>5 (De acuerdo)</span>
-                </div>
-              </div>
-
-              <!-- Item 3 -->
-              <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60 space-y-2">
-                <span class="text-slate-200 block font-medium">3. "Prefiero resolver mis propios problemas emocionales sin depender de nadie más."</span>
-                <div class="flex justify-between items-center text-[11px] text-slate-400 pt-1">
-                  <span>1 (Desacuerdo)</span>
-                  <div class="flex gap-2">
-                    <label class="cursor-pointer"><input type="radio" name="item3" value="1" class="text-sparkPurple" onchange="calcTestScore()"> 1</label>
-                    <label class="cursor-pointer"><input type="radio" name="item3" value="2" class="text-sparkPurple" onchange="calcTestScore()"> 2</label>
-                    <label class="cursor-pointer"><input type="radio" name="item3" value="3" class="text-sparkPurple" onchange="calcTestScore()" checked> 3</label>
-                    <label class="cursor-pointer"><input type="radio" name="item3" value="4" class="text-sparkPurple" onchange="calcTestScore()"> 4</label>
-                    <label class="cursor-pointer"><input type="radio" name="item3" value="5" class="text-sparkPurple" onchange="calcTestScore()"> 5</label>
-                  </div>
-                  <span>5 (De acuerdo)</span>
-                </div>
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block mb-1">Estándar DUA:</strong>
+                <span class="text-slate-400" id="mockupDua">Tipografía ampliada, alto contraste y voz</span>
               </div>
             </div>
 
-            <!-- Score Result Card -->
-            <div class="p-4 rounded-xl bg-slate-950 border border-sparkPurple/30 text-xs space-y-1.5" id="testResultBox">
-              <span class="text-[10px] uppercase font-bold text-sparkPurple tracking-wider">Tendencia Psicoeducativa Estimada</span>
-              <div class="font-bold text-white text-sm" id="testTendencyName">Tendencia: Apego Seguro / Autónomo en Exploración</div>
-              <p class="text-slate-400 text-[11px] leading-relaxed" id="testTendencyDesc">
-                Muestras una base equilibrada para expresar afecto y regular la autonomía personal sin sobre-activación de ansiedad.
-              </p>
+            <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-400 space-y-1">
+              <strong class="text-emerald-400 block">🔒 Garantía de Protección de Datos:</strong>
+              <p>Muestra puramente ilustrativa e informativa. Ninguna información personal o de dispositivo se transmite ni se almacena al consultar esta vista previa.</p>
             </div>
-
           </div>
-
         </div>
-      </div>
 
-      <!-- SANDBOX CONTENT 3: BIENESTAR CETIS 23 -->
-      <div id="sandboxCetis" class="hidden glass-card rounded-2xl p-6 sm:p-8 border border-googleBlue/20 shadow-2xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          <div class="lg:col-span-6 space-y-6">
-            <div class="border-b border-slate-800 pb-4">
-              <h3 class="font-bold text-lg text-white flex items-center gap-2">
-                <span>🏫</span> Simulador de Factores de Retención y Alerta Temprana
-              </h3>
-              <p class="text-xs text-slate-400">Ajusta los indicadores institucionales para simular el riesgo de abandono escolar</p>
-            </div>
-
-            <!-- Sliders -->
-            <div class="space-y-4 text-xs">
-              <div class="space-y-1.5">
-                <div class="flex justify-between font-medium">
-                  <span class="text-slate-300">Tasa de Asistencia Grupal:</span>
-                  <span class="text-googleBlue font-bold font-mono" id="valAsistencia">88%</span>
-                </div>
-                <input type="range" min="50" max="100" value="88" class="w-full accent-googleBlue" oninput="updateCetisSimulation()">
-              </div>
-
-              <div class="space-y-1.5">
-                <div class="flex justify-between font-medium">
-                  <span class="text-slate-300">Índice de Clima Socioemocional ("Pausa y Conecta"):</span>
-                  <span class="text-emerald-400 font-bold font-mono" id="valClima">8.4 / 10</span>
-                </div>
-                <input type="range" min="1" max="10" step="0.1" value="8.4" class="w-full accent-emerald-400" oninput="updateCetisSimulation()">
-              </div>
-
-              <div class="space-y-1.5">
-                <div class="flex justify-between font-medium">
-                  <span class="text-slate-300">Sesiones de Acompañamiento Tutorial al Mes:</span>
-                  <span class="text-sparkPurple font-bold font-mono" id="valTutorias">4 sesiones</span>
-                </div>
-                <input type="range" min="0" max="8" value="4" class="w-full accent-sparkPurple" oninput="updateCetisSimulation()">
-              </div>
-            </div>
-
-            <!-- Interventions Recommended -->
-            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
-              <strong class="text-googleBlue block">Protocolo de Intervención Recomendado por el Modelo:</strong>
-              <p class="text-slate-300 leading-relaxed" id="cetisProtocolText">
-                "Nivel de Riesgo Bajo. Mantener el monitoreo preventivo semanal mediante la dinámica 'Pausa, Conecta y Expresa' e incentivar la participación en clubes extracurriculares de IA."
-              </p>
-            </div>
-          </div>
-
-          <!-- Gauges / Dashboard Output -->
-          <div class="lg:col-span-6 bg-slate-900/90 rounded-xl p-6 border border-slate-800 space-y-6">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-              <div>
-                <span class="text-[11px] font-bold text-googleBlue uppercase">Métricas Agregadas CETis No. 23</span>
-                <h4 class="font-bold text-white text-base">Termómetro de Clima Escolar</h4>
-              </div>
-              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" id="cetisRiskBadge">Riesgo Bajo</span>
-            </div>
-
-            <!-- Visual Thermometer / KPI Grid -->
-            <div class="grid grid-cols-2 gap-4">
-              <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-center">
-                <span class="text-xs text-slate-400 block mb-1">Índice de Retención</span>
-                <div class="text-3xl font-black text-emerald-400 font-mono" id="kpiRetencion">96.2%</div>
-                <span class="text-[10px] text-slate-500 mt-1 block">Meta institucional superada</span>
-              </div>
-
-              <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-center">
-                <span class="text-xs text-slate-400 block mb-1">Alertas Tempranas</span>
-                <div class="text-3xl font-black text-googleBlue font-mono" id="kpiAlertas">2</div>
-                <span class="text-[10px] text-slate-500 mt-1 block">Canalizaciones activas</span>
-              </div>
-            </div>
-
-            <!-- DUA Optimization Notice -->
-            <div class="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 text-xs space-y-1.5">
-              <strong class="text-blue-400 flex items-center gap-1.5">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-                Accesibilidad DUA (Diseño Universal)
-              </strong>
-              <p class="text-slate-300 text-[11px] leading-relaxed">
-                El sistema está optimizado para funcionar fluidamente en dispositivos móviles de gama baja y conexiones 3G/4G del alumnado del Estado de México, garantizando equidad digital.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
       </div>
 
     </div>
@@ -896,17 +644,17 @@
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1" data-i18n="port_title">
             Proyectos de Ciencia de Datos, AIoT y Ecosistema Educativo
           </h2>
-          <p class="text-slate-400 text-sm mt-2 max-w-2xl" data-i18n="port_desc">
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 max-w-2xl" data-i18n="port_desc">
             Proyectos de investigación aplicada de posgrado (INFOTEC), desarrollo de modelos de series de tiempo y arquitectura pedagógica para el sector público.
           </p>
         </div>
 
         <!-- Filter tabs -->
-        <div class="flex flex-wrap gap-1 p-1 bg-slate-900 border border-slate-800 rounded-xl text-xs font-medium">
-          <button onclick="filterPortfolio('all', this)" class="port-filter-btn active px-3 py-1.5 rounded-lg bg-googleGreen text-slate-950 font-bold">Todos</button>
-          <button onclick="filterPortfolio('ai', this)" class="port-filter-btn px-3 py-1.5 rounded-lg text-slate-300 hover:text-white">IA & ML</button>
-          <button onclick="filterPortfolio('data', this)" class="port-filter-btn px-3 py-1.5 rounded-lg text-slate-300 hover:text-white">Ciencia de Datos & AIoT</button>
-          <button onclick="filterPortfolio('edu', this)" class="port-filter-btn px-3 py-1.5 rounded-lg text-slate-300 hover:text-white">Innovación Educativa</button>
+        <div class="flex flex-wrap gap-1 p-1 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold">
+          <button onclick="filterPortfolio('all', this)" class="port-filter-btn active px-3.5 py-2 rounded-lg bg-googleGreen text-slate-950">Todos</button>
+          <button onclick="filterPortfolio('ai', this)" class="port-filter-btn px-3.5 py-2 rounded-lg text-slate-300 hover:text-white">IA & ML</button>
+          <button onclick="filterPortfolio('data', this)" class="port-filter-btn px-3.5 py-2 rounded-lg text-slate-300 hover:text-white">Ciencia de Datos & AIoT</button>
+          <button onclick="filterPortfolio('edu', this)" class="port-filter-btn px-3.5 py-2 rounded-lg text-slate-300 hover:text-white">Innovación Educativa</button>
         </div>
       </div>
 
@@ -916,12 +664,12 @@
         <div class="port-card glass-card rounded-2xl p-6 border border-slate-800 hover:border-googleBlue/40 transition flex flex-col justify-between" data-category="data">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-400 border border-blue-500/30">
+              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/30">
                 AIoT & Seguridad Hídrica
               </span>
               <span class="text-xs text-slate-400">INFOTEC MGITIC</span>
             </div>
-            <h3 class="text-lg font-bold text-white">Telemetría AIoT y Detección de Fugas en Redes Hidráulicas</h3>
+            <h3 class="text-lg font-extrabold text-white">Telemetría AIoT y Detección de Fugas en Redes Hidráulicas</h3>
             <p class="text-xs text-slate-300 leading-relaxed">
               Procesamiento y análisis inferencial de <strong>15,000 registros continuos</strong> (intervalos de 15 min) provenientes de sensores piezoeléctricos y caudalímetros ultrasónicos en 4 Distritos Hidrométricos (DMAs) del Valle de México para detectar fugas ocultas mediante Caudal Mínimo Nocturno (MNF).
             </p>
@@ -932,7 +680,6 @@
               <span class="px-2 py-0.5 rounded bg-slate-800">Pandas</span>
               <span class="px-2 py-0.5 rounded bg-slate-800">NumPy</span>
               <span class="px-2 py-0.5 rounded bg-slate-800">SciPy</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800">Google Colab</span>
             </div>
           </div>
         </div>
@@ -941,12 +688,12 @@
         <div class="port-card glass-card rounded-2xl p-6 border border-slate-800 hover:border-amber-500/40 transition flex flex-col justify-between" data-category="data">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
+              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
                 Series Temporales & Finanzas
               </span>
               <span class="text-xs text-slate-400">Análisis Cuantitativo</span>
             </div>
-            <h3 class="text-lg font-bold text-white">Modelado Econométrico de Volatilidad (ARCH / GARCH 2008–2026)</h3>
+            <h3 class="text-lg font-extrabold text-white">Modelado Econométrico de Volatilidad (ARCH / GARCH 2008–2026)</h3>
             <p class="text-xs text-slate-300 leading-relaxed">
               Extracción automatizada de series bursátiles mexicanas con <code>yfinance</code>, pruebas de estacionariedad (Dickey-Fuller) y ajuste de modelos de heterocedasticidad condicional autorregresiva (ARCH/GARCH) para cuantificar riesgo financiero de largo plazo.
             </p>
@@ -965,12 +712,12 @@
         <div class="port-card glass-card rounded-2xl p-6 border border-slate-800 hover:border-sparkPurple/40 transition flex flex-col justify-between" data-category="ai">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-400 border border-purple-500/30">
+              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">
                 IA Generativa & Educación
               </span>
               <span class="text-xs text-slate-400">Obra Pedagógica</span>
             </div>
-            <h3 class="text-lg font-bold text-white">Catálogo de 60 Proyectos Semestrales de IA con Gemini & Mobile Apps</h3>
+            <h3 class="text-lg font-extrabold text-white">Catálogo de 60 Proyectos Semestrales de IA con Gemini & Mobile Apps</h3>
             <p class="text-xs text-slate-300 leading-relaxed">
               Guía técnica y pedagógica integral de 16 semanas para la carrera técnica en IA, dividida en 10 áreas estratégicas (Gestión con OR-Tools, NLP en JSON Mode, Visión con MediaPipe, Salud/Biometría, Smart Cities con Folium, Ciberseguridad y Accesibilidad).
             </p>
@@ -989,12 +736,12 @@
         <div class="port-card glass-card rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/40 transition flex flex-col justify-between" data-category="edu">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                 Sustentabilidad & PAEC
               </span>
               <span class="text-xs text-slate-400">EPO 201</span>
             </div>
-            <h3 class="text-lg font-bold text-white">Monitoreo Fisicoquímico y Fitorremediación de Humedal Escolar</h3>
+            <h3 class="text-lg font-extrabold text-white">Monitoreo Fisicoquímico y Fitorremediación de Humedal Escolar</h3>
             <p class="text-xs text-slate-300 leading-relaxed">
               Diseño de matrices protegidas y cálculo automatizado de eficiencia de fito-depuración bajo norma NOM-001-SEMARNAT-2021, monitoreando pH, turbidez con disco Secchi, oxígeno disuelto y bioindicadores con índice BMWP.
             </p>
@@ -1012,12 +759,12 @@
         <div class="port-card glass-card rounded-2xl p-6 border border-slate-800 hover:border-googleBlue/40 transition flex flex-col justify-between" data-category="edu">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-400 border border-blue-500/30">
+              <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/30">
                 Productividad Docente & MCCEMS
               </span>
               <span class="text-xs text-slate-400">Google Workspace</span>
             </div>
-            <h3 class="text-lg font-bold text-white">Motor de Automatización de Evaluaciones & Planeación Didáctica</h3>
+            <h3 class="text-lg font-extrabold text-white">Motor de Automatización de Evaluaciones & Planeación Didáctica</h3>
             <p class="text-xs text-slate-300 leading-relaxed">
               Scripts en Google Apps Script (<code>FormApp</code>) y cuadernos Colab para generación programática de reactivos autocorregibles con retroalimentación inmediata y estandarización de planeaciones didácticas bajo el MCCEMS.
             </p>
@@ -1045,7 +792,7 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2" data-i18n="tray_title">
           Trayectoria Profesional, Reconocimientos y Certificaciones
         </h2>
-        <p class="text-slate-400 mt-3 text-sm sm:text-base" data-i18n="tray_desc">
+        <p class="text-slate-400 mt-3 text-xs sm:text-sm" data-i18n="tray_desc">
           Formación académica de excelencia y compromiso comprobado con la innovación educativa en el Instituto Politécnico Nacional y la DGETI.
         </p>
       </div>
@@ -1071,7 +818,7 @@
 
             <!-- Milestone 2 -->
             <div class="relative">
-              <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 border-4 border-slate-950"></div>
+              <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-400 border-4 border-slate-950"></div>
               <span class="text-[11px] font-mono text-emerald-400 font-bold">2025 — Basificación Docente</span>
               <h4 class="font-bold text-sm text-white mt-0.5">Obtención de Plaza Definitiva por Excelente Desempeño</h4>
               <p class="text-slate-400 mt-1 leading-relaxed">
@@ -1133,7 +880,7 @@
             </div>
 
             <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
-              <span class="text-[10px] font-bold text-blue-400 uppercase">CONOCER & Neurodidáctica</span>
+              <span class="text-[10px] font-bold text-sky-400 uppercase">CONOCER & Neurodidáctica</span>
               <h4 class="font-bold text-white text-sm">Estándar EC0566</h4>
               <p class="text-slate-400">Docente Neurodidacta en Educación Media Superior</p>
             </div>
@@ -1151,30 +898,30 @@
     </div>
   </section>
 
-  <!-- GOOGLE PLAY COMPLIANCE, DATA SAFETY & LEGAL CENTER (CRITICAL SECTION) -->
+  <!-- GOOGLE PLAY COMPLIANCE, DATA SAFETY & LEGAL CENTER (READ-ONLY INFORMATIVE CENTER) -->
   <section id="compliance" class="py-16 sm:py-24 border-b border-darkBorder bg-darkBg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3">
           <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
           Google Play Developer Console Compliance Hub
         </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="comp_title">
           Centro Oficial de Privacidad, Seguridad de Datos y Soporte
         </h2>
-        <p class="text-slate-400 mt-3 text-sm sm:text-base" data-i18n="comp_desc">
-          Documentación legal vinculante, políticas de privacidad por aplicación, protocolo formal de eliminación de datos (Data Safety) y especificación app-ads.txt para AdMob.
+        <p class="text-slate-400 mt-3 text-xs sm:text-sm" data-i18n="comp_desc">
+          Documentación legal vinculante, políticas de privacidad por aplicación, protocolo formal informativo de eliminación de datos (Data Safety) y especificación app-ads.txt para AdMob.
         </p>
       </div>
 
       <!-- Compliance Tabs Navigation -->
       <div class="flex flex-wrap items-center justify-center gap-2 mb-8 border-b border-slate-800 pb-4">
-        <button onclick="switchCompTab('privacy')" id="btnCompPrivacy" class="comp-tab-btn active px-4 py-2 rounded-xl text-xs font-bold bg-googleBlue text-white shadow">
+        <button onclick="switchCompTab('privacy')" id="btnCompPrivacy" class="comp-tab-btn active px-4 py-2 rounded-xl text-xs font-bold bg-googleBlue text-slate-950 shadow">
           1. Política de Privacidad (Global & Apps)
         </button>
         <button onclick="switchCompTab('deletion')" id="btnCompDeletion" class="comp-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-700 text-amber-400 hover:border-amber-400">
-          2. Formulario de Eliminación de Datos / Cuenta
+          2. Protocolo Informativo de Eliminación de Datos
         </button>
         <button onclick="switchCompTab('terms')" id="btnCompTerms" class="comp-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-700 text-slate-300 hover:text-white">
           3. Términos de Servicio & EULA
@@ -1192,7 +939,7 @@
             <h3 class="text-xl font-bold text-white">Política de Privacidad Integral del Desarrollador</h3>
             <p class="text-xs text-slate-400 mt-1">Última actualización: Octubre 2026 • Responsable Legal: Ing. Tenoch Alberto Girón Acosta</p>
           </div>
-          <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full self-start">
+          <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full self-start font-bold">
             Conforme a Google Play Data Safety
           </span>
         </div>
@@ -1214,12 +961,12 @@
               <strong class="text-amber-400 font-bold text-sm flex items-center gap-2">
                 <span>🍳</span> Aplicación: ChefMágico — Gastronomía Inteligente con IA
               </strong>
-              <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">Package: com.tenochgiron.chefmagico</span>
+              <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">com.tenochgiron.chefmagico</span>
             </div>
             <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-300">
-              <li><strong>Permiso de Cámara (CAMERA) y Galería:</strong> Utilizado única y exclusivamente bajo solicitud explícita del usuario para capturar fotografías de ingredientes en su refrigerador o despensa. Las imágenes se procesan de manera estrictamente <em>efímera</em> a través de la API de visión multimodal de IA para identificar insumos culinarios. Las fotografías <strong>NUNCA</strong> son vendidas, compartidas con anunciantes ni almacenadas permanentemente en servidores remotos.</li>
-              <li><strong>Permiso de Micrófono (RECORD_AUDIO):</strong> Utilizado localmente para comandos de voz durante la ejecución del temporizador en cocina (manos libres). El audio se procesa en el dispositivo durante la sesión y no se conserva ni graba en servidores.</li>
-              <li><strong>Almacenamiento Local:</strong> Tus recetas favoritas y listas de compras se conservan en la memoria interna de tu dispositivo (DataStore/Room) para su uso sin conexión.</li>
+              <li><strong>Permiso de Cámara (CAMERA):</strong> Utilizado única y exclusivamente bajo solicitud explícita del usuario para capturar fotografías de ingredientes. Las imágenes se procesan de manera estrictamente <em>efímera</em> a través de la API de visión multimodal de IA. Las fotografías <strong>NUNCA</strong> son vendidas, compartidas con anunciantes ni almacenadas permanentemente.</li>
+              <li><strong>Permiso de Micrófono (RECORD_AUDIO):</strong> Utilizado localmente para comandos de voz durante la ejecución del temporizador en cocina (manos libres). El audio no se graba en servidores.</li>
+              <li><strong>Almacenamiento Local:</strong> Recetas guardadas en memoria del dispositivo (DataStore/Room) para su uso sin conexión.</li>
             </ul>
           </div>
 
@@ -1229,12 +976,11 @@
               <strong class="text-purple-400 font-bold text-sm flex items-center gap-2">
                 <span>🧠</span> Aplicación: Emociona — Bienestar Emocional y Estilos de Apego
               </strong>
-              <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">Package: com.tenochgiron.emociona</span>
+              <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">com.tenochgiron.emociona</span>
             </div>
             <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-300">
-              <li><strong>Privacidad de Datos Psicoeducativos Sensibles:</strong> Toda respuesta a la rueda de emociones, el Modelo ABC y los 28 reactivos del test de estilos de apego se almacena de forma <em>estrictamente local</em> en el dispositivo móvil del usuario (Privacy-by-Design).</li>
-              <li><strong>Deslinde de Responsabilidad Clínica y Médica:</strong> <em>Emociona</em> es una herramienta orientativa y psicoeducativa formativa. En ningún momento constituye diagnóstico médico, psiquiátrico o psicoterapéutico profesional. Ante situaciones de crisis o malestar agudo, se provee canalización hacia líneas profesionales de atención gratuita como la Línea de la Vida en México.</li>
-              <li><strong>Sin Publicidad Personalizada de Salud:</strong> No se transmiten datos emocionales a redes de telemetría de terceros ni se monetizan perfiles psicológicos.</li>
+              <li><strong>Privacidad de Datos Psicoeducativos Sensibles:</strong> Toda respuesta a la rueda de emociones y el test de estilos de apego se almacena de forma <em>estrictamente local</em> en el dispositivo del usuario (Privacy-by-Design).</li>
+              <li><strong>Deslinde de Responsabilidad Clínica y Médica:</strong> <em>Emociona</em> es una herramienta orientativa y psicoeducativa formativa. En ningún momento constituye diagnóstico médico o psiquiátrico.</li>
             </ul>
           </div>
 
@@ -1244,94 +990,52 @@
               <strong class="text-googleBlue font-bold text-sm flex items-center gap-2">
                 <span>🏫</span> Aplicación: Bienestar CETis 23 — Acompañamiento Socioemocional
               </strong>
-              <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">Package: com.tenochgiron.bienestarcetis23</span>
+              <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">com.tenochgiron.bienestarcetis23</span>
             </div>
             <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-300">
-              <li><strong>Datos Académicos e Institucionales:</strong> Las interacciones se utilizan únicamente con fines tutoriales preventivos bajo el marco escolar de la DGETI. Los datos de asistencia y bienestar grupal se agregan de forma anónima para proteger la identidad del alumnado.</li>
-              <li><strong>Cifrado y Seguridad:</strong> Todo canal de comunicación institucional utiliza cifrado TLS 1.3 en tránsito con estricto control de acceso para tutores acreditados.</li>
+              <li><strong>Datos Académicos e Institucionales:</strong> Las interacciones se utilizan únicamente con fines tutoriales preventivos bajo el marco escolar de la DGETI.</li>
             </ul>
           </div>
         </div>
 
-        <div class="space-y-3 pt-2">
-          <h4 class="text-base font-bold text-white">3. Derechos ARCO y Ejercicio del Usuario</h4>
-          <p>
-            Cualquier usuario de las aplicaciones de Tenoch Girón tiene pleno derecho de Acceso, Rectificación, Cancelación y Oposición (ARCO) de sus datos personales. Para ejercer estos derechos o solicitar el borrado de cualquier registro, puede utilizar la pestaña de <strong>Eliminación de Datos</strong> en este portal o escribir a <code>tenochalbertogiron290@gmail.com</code>.
-          </p>
-        </div>
-
       </div>
 
-      <!-- TAB 2: FORMULARIO DE ELIMINACIÓN DE DATOS (DATA SAFETY MANDATE) -->
+      <!-- TAB 2: PROTOCOLO INFORMATIVO DE ELIMINACIÓN DE DATOS (READ-ONLY SAFE DISCLOSURE) -->
       <div id="compTabDeletion" class="hidden glass-card rounded-2xl p-6 sm:p-10 border border-amber-500/30 space-y-6">
         <div class="border-b border-slate-800 pb-4">
           <div class="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-            Requisito Obligatorio de Google Play Data Deletion
+            Requisito Obligatorio de Google Play Data Safety
           </div>
-          <h3 class="text-2xl font-extrabold text-white mt-1">Solicitud de Eliminación de Cuenta y Datos de Usuario</h3>
+          <h3 class="text-2xl font-extrabold text-white mt-1">Protocolo Oficial de Eliminación de Cuenta y Datos</h3>
           <p class="text-xs sm:text-sm text-slate-400 mt-1">
-            Conforme a las políticas de seguridad de datos de Google Play, este formulario te permite solicitar el borrado permanente y verificable de tus cuentas o registros asociados a cualquiera de nuestras apps sin necesidad de reinstalarlas.
+            Información regulatoria para los usuarios de Google Play sobre cómo solicitar el borrado permanente y verificable de sus datos o cuentas asociadas.
           </p>
         </div>
 
-        <form id="dataDeletionForm" onsubmit="handleDataDeletion(event)" class="space-y-4 max-w-2xl text-xs sm:text-sm">
-          <div>
-            <label class="block font-semibold text-slate-200 mb-1">1. Selecciona la aplicación:</label>
-            <select id="delAppSelect" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-amber-400">
-              <option value="ChefMágico">ChefMágico — Gastronomía Inteligente con IA (com.tenochgiron.chefmagico)</option>
-              <option value="Emociona">Emociona — Bienestar y Estilos de Apego (com.tenochgiron.emociona)</option>
-              <option value="Bienestar CETis 23">Bienestar CETis 23 — Acompañamiento Socioemocional (com.tenochgiron.bienestarcetis23)</option>
-            </select>
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed" id="data-deletion">
+          <h4 class="font-bold text-white text-base">¿Cómo solicitar la eliminación de tus datos?</h4>
+          <p>
+            Conforme a las directivas de seguridad de datos de Google Play, cualquier usuario de nuestras aplicaciones (*ChefMágico*, *Emociona*, *Bienestar CETis 23*) puede ejercer su derecho de borrado total enviando una solicitud formal por correo electrónico.
+          </p>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-amber-500/30 space-y-2">
+            <strong class="text-amber-400 block font-semibold">Pasos para enviar tu solicitud:</strong>
+            <ol class="list-decimal list-inside space-y-1.5 text-xs text-slate-300">
+              <li>Envía un mensaje desde tu correo registrado hacia: <code class="font-mono text-white bg-slate-800 px-2 py-0.5 rounded">tenochalbertogiron290@gmail.com</code></li>
+              <li>Asunto del mensaje: <strong class="text-white">Solicitud de Eliminación de Datos - [Nombre de la App]</strong></li>
+              <li>Indica tu correo de usuario o identificador y si requieres la baja total de tu cuenta o el borrado de historial.</li>
+            </ol>
           </div>
 
-          <div>
-            <label class="block font-semibold text-slate-200 mb-1">2. Correo electrónico registrado o Identificador de usuario:</label>
-            <input type="email" id="delUserEmail" required placeholder="tu-correo@ejemplo.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-amber-400 placeholder-slate-500">
-          </div>
-
-          <div>
-            <label class="block font-semibold text-slate-200 mb-1">3. Alcance de la solicitud de borrado:</label>
-            <div class="space-y-2 pt-1 text-xs">
-              <label class="flex items-center gap-2.5 cursor-pointer">
-                <input type="radio" name="delScope" value="Eliminación Completa de Cuenta y Todos los Datos Asociados" checked class="text-amber-500">
-                <span class="text-slate-300">Eliminación completa de mi cuenta, perfil y todos los datos asociados</span>
-              </label>
-              <label class="flex items-center gap-2.5 cursor-pointer">
-                <input type="radio" name="delScope" value="Eliminación Específica de Historial y Preferencias" class="text-amber-500">
-                <span class="text-slate-300">Eliminación específica de historial, preferencias y registros generados</span>
-              </label>
-            </div>
-          </div>
-
-          <div>
-            <label class="block font-semibold text-slate-200 mb-1">4. Motivo o comentarios adicionales (opcional):</label>
-            <textarea id="delReason" rows="3" placeholder="Indica detalles si requieres la baja de un dispositivo en particular..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-amber-400 placeholder-slate-500"></textarea>
-          </div>
-
-          <!-- Commit time notice -->
-          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-400">
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400">
             🔒 <strong>Compromiso de Atención:</strong> Las solicitudes son procesadas dentro de un plazo máximo de <strong>72 horas hábiles</strong>. Recibirás un acuse formal de confirmación emitido desde <code>tenochalbertogiron290@gmail.com</code>.
           </div>
 
-          <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-            <span>Generar Solicitud Formal de Eliminación (Ticket)</span>
-          </button>
-        </form>
-
-        <!-- Result Box (Hidden until submitted) -->
-        <div id="delSuccessBox" class="hidden p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm space-y-3">
-          <div class="flex items-center gap-2 text-emerald-400 font-bold text-base">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-            <span>Ticket de Eliminación Generado Exitosamente</span>
-          </div>
-          <p class="text-slate-300">
-            Tu solicitud ha sido registrada bajo el ticket: <strong id="ticketIdDisplay" class="font-mono text-emerald-400">DEL-2026-XXXX</strong>.
-          </p>
-          <div class="flex flex-wrap gap-3 pt-2">
-            <a id="delMailtoLink" href="#" class="px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs">
-              Confirmar Envío por Correo Electrónico
+          <div class="pt-2">
+            <a href="mailto:tenochalbertogiron290@gmail.com?subject=Solicitud%20de%20Eliminacion%20de%20Datos%20-%20Google%20Play&body=Deseo%20solicitar%20la%20eliminacion%20permanente%20de%20mis%20datos%20asociados%20a%20la%20aplicacion." class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition shadow-md shadow-amber-500/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span>Redactar Solicitud de Borrado por Correo</span>
             </a>
           </div>
         </div>
@@ -1342,7 +1046,7 @@
       <div id="compTabTerms" class="hidden glass-card rounded-2xl p-6 sm:p-10 border border-slate-800 space-y-6 text-xs sm:text-sm text-slate-300 leading-relaxed">
         <h3 class="text-xl font-bold text-white">Términos y Condiciones de Uso (EULA)</h3>
         <p>
-          Al descargar, instalar o interactuar con las aplicaciones móviles o demostraciones web desarrolladas por el <strong>Ing. Tenoch Alberto Girón Acosta</strong>, el usuario acepta de manera expresa los presentes Términos de Servicio.
+          Al descargar, instalar o consultar la documentación de las aplicaciones desarrolladas por el <strong>Ing. Tenoch Alberto Girón Acosta</strong>, el usuario acepta de manera expresa los presentes Términos de Servicio.
         </p>
         <div class="space-y-3">
           <h4 class="font-bold text-white text-sm">1. Licencia de Uso</h4>
@@ -1374,12 +1078,12 @@
         </div>
 
         <!-- Code Block -->
-        <div class="space-y-3">
+        <div class="space-y-3" id="app-ads">
           <div class="flex items-center justify-between">
             <span class="text-xs font-mono text-slate-400">Ruta requerida: <code>https://tudominio.com/app-ads.txt</code></span>
-            <button onclick="copyAppAdsTxt()" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5">
+            <button onclick="copyAppAdsTxt()" class="px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-              <span id="copyAdsLabel">Copiar app-ads.txt</span>
+              <span id="copyAdsLabel">Copiar Cadena app-ads.txt</span>
             </button>
           </div>
 
@@ -1390,7 +1094,7 @@
           <strong class="text-white block">Instrucciones de Despliegue para Google Play Console:</strong>
           <ol class="list-decimal list-inside space-y-1 text-slate-300">
             <li>Ingresa esta URL web en la sección <strong>"Ficha de Play Store principal" &gt; "Detalles de contacto"</strong> de Google Play Console.</li>
-            <li>Coloca el archivo descargable <code>app-ads.txt</code> en el directorio raíz de tu hosting (GitHub Pages, Vercel, Firebase o servidor propio).</li>
+            <li>Coloca el archivo <code>app-ads.txt</code> en el directorio raíz de tu hosting (GitHub Pages, Vercel, Firebase o servidor propio).</li>
             <li>Google AdMob rastreará automáticamente la URL en un plazo de 24 horas y marcará tu cuenta como <strong>Verificada (DIRECT)</strong>.</li>
           </ol>
         </div>
@@ -1402,11 +1106,11 @@
   <!-- GEMINI AI ASSISTANT WIDGET (FLOATING / EMBEDDED) -->
   <div id="aiChatDrawer" class="fixed bottom-6 right-6 z-50">
     <!-- Chat Button -->
-    <button onclick="toggleAiChat()" id="aiChatToggleBtn" class="flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-googleBlue via-sparkPurple to-blue-600 text-white font-bold text-xs shadow-2xl hover:scale-105 transition-all duration-200 border border-white/20">
-      <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
+    <button onclick="toggleAiChat()" id="aiChatToggleBtn" class="flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-googleBlue via-sparkPurple to-blue-600 text-slate-950 font-extrabold text-xs shadow-2xl hover:scale-105 transition-all duration-200 border border-white/20">
+      <div class="w-6 h-6 rounded-full bg-slate-950/20 flex items-center justify-center text-white">
         ✨
       </div>
-      <span>Pregúntale al Asistente de Tenoch</span>
+      <span class="text-white">Pregúntale al Asistente de Tenoch</span>
       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
     </button>
 
@@ -1419,8 +1123,8 @@
             ✨
           </div>
           <div>
-            <h4 class="font-bold text-white text-xs">Asistente IA de Tenoch Girón</h4>
-            <span class="text-[10px] text-emerald-400 flex items-center gap-1">
+            <h4 class="font-extrabold text-white text-xs">Asistente IA de Tenoch Girón</h4>
+            <span class="text-[10px] text-emerald-400 flex items-center gap-1 font-semibold">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Conectado • Base de Conocimiento ESCOM/INFOTEC
             </span>
           </div>
@@ -1432,18 +1136,18 @@
 
       <!-- Quick prompts chips -->
       <div class="p-2 border-b border-slate-800/80 bg-slate-950/60 overflow-x-auto whitespace-nowrap flex gap-1.5 text-[11px]">
-        <button onclick="askQuickPrompt('¿Cuáles son las apps de Tenoch en Google Play?')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 shrink-0">Apps en Play</button>
-        <button onclick="askQuickPrompt('¿Cómo solicita ChefMágico los permisos de cámara y micrófono?')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 shrink-0">Permisos ChefMágico</button>
-        <button onclick="askQuickPrompt('¿Cómo funciona la política de eliminación de datos de Google Play?')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 shrink-0">Borrado de Datos</button>
-        <button onclick="askQuickPrompt('¿Cuál es la trayectoria académica de Tenoch en IPN e INFOTEC?')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 shrink-0">Trayectoria IPN</button>
+        <button onclick="askQuickPrompt('¿Cuáles son las apps de Tenoch en Google Play?')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 shrink-0 font-medium">Apps en Play</button>
+        <button onclick="askQuickPrompt('¿Cómo solicita ChefMágico los permisos de cámara y micrófono?')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 shrink-0 font-medium">Permisos ChefMágico</button>
+        <button onclick="askQuickPrompt('¿Cómo funciona la política de eliminación de datos de Google Play?')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 shrink-0 font-medium">Borrado de Datos</button>
+        <button onclick="askQuickPrompt('¿Cuál es la trayectoria académica de Tenoch en IPN e INFOTEC?')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 shrink-0 font-medium">Trayectoria IPN</button>
       </div>
 
       <!-- Messages Area -->
       <div id="aiChatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs leading-relaxed">
         <div class="flex items-start gap-2">
-          <div class="w-6 h-6 rounded-full bg-googleBlue/20 text-googleBlue flex items-center justify-center shrink-0 text-xs">✨</div>
+          <div class="w-6 h-6 rounded-full bg-googleBlue/20 text-googleBlue flex items-center justify-center shrink-0 text-xs font-bold">✨</div>
           <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-slate-200">
-            ¡Hola! Soy el asistente oficial del <strong>Ing. Tenoch Alberto Girón Acosta</strong>. Puedo orientarte sobre sus aplicaciones (ChefMágico, Emociona, Bienestar CETis 23), su trayectoria en ESCOM-IPN e INFOTEC, o los requisitos de cumplimiento de Google Play Console. ¿En qué puedo ayudarte hoy?
+            ¡Hola! Soy el asistente informativo oficial del <strong>Ing. Tenoch Alberto Girón Acosta</strong>. Puedo orientarte sobre sus aplicaciones (*ChefMágico*, *Emociona*, *Bienestar CETis 23*), su trayectoria en ESCOM-IPN e INFOTEC, o los requisitos de cumplimiento de Google Play Console. ¿En qué puedo ayudarte hoy?
           </div>
         </div>
       </div>
@@ -1451,7 +1155,7 @@
       <!-- Input Area -->
       <form onsubmit="handleSendAiMessage(event)" class="p-3 border-t border-slate-800 bg-slate-900/90 flex items-center gap-2">
         <input type="text" id="aiUserInput" placeholder="Pregunta sobre las apps o políticas..." required class="flex-1 px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-googleBlue">
-        <button type="submit" class="p-2 rounded-xl bg-googleBlue hover:bg-blue-600 text-white transition">
+        <button type="submit" class="p-2 rounded-xl bg-googleBlue hover:bg-sky-500 text-slate-950 transition font-bold">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
         </button>
       </form>
@@ -1462,7 +1166,7 @@
   <div id="quickUrlsModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="max-w-xl w-full glass-card rounded-2xl border border-slate-700 p-6 space-y-4">
       <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-        <h3 class="font-bold text-white text-base flex items-center gap-2">
+        <h3 class="font-extrabold text-white text-base flex items-center gap-2">
           <span>📋</span> URLs Oficiales para Google Play Console
         </h3>
         <button onclick="toggleQuickUrlsModal()" class="text-slate-400 hover:text-white">
@@ -1478,41 +1182,41 @@
         <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between items-center">
           <div class="truncate mr-2">
             <span class="text-slate-400 block text-[10px]">Sitio Web Oficial de Desarrollador:</span>
-            <span class="text-googleBlue" id="currentHostUrl">https://tenochgiron.dev</span>
+            <span class="text-googleBlue font-bold" id="currentHostUrl">https://tenochgiron.dev</span>
           </div>
-          <button onclick="copyText('currentHostUrl')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px]">Copiar</button>
+          <button onclick="copyText('currentHostUrl')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px] font-bold">Copiar</button>
         </div>
 
         <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between items-center">
           <div class="truncate mr-2">
             <span class="text-slate-400 block text-[10px]">Política de Privacidad (ChefMágico):</span>
-            <span class="text-amber-400" id="urlPrivChef">https://tenochgiron.dev/#privacy-chef</span>
+            <span class="text-amber-400 font-bold" id="urlPrivChef">https://tenochgiron.dev/#privacy-chef</span>
           </div>
-          <button onclick="copyText('urlPrivChef')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px]">Copiar</button>
+          <button onclick="copyText('urlPrivChef')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px] font-bold">Copiar</button>
         </div>
 
         <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between items-center">
           <div class="truncate mr-2">
             <span class="text-slate-400 block text-[10px]">Política de Privacidad (Emociona):</span>
-            <span class="text-purple-400" id="urlPrivEmociona">https://tenochgiron.dev/#privacy-emociona</span>
+            <span class="text-purple-400 font-bold" id="urlPrivEmociona">https://tenochgiron.dev/#privacy-emociona</span>
           </div>
-          <button onclick="copyText('urlPrivEmociona')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px]">Copiar</button>
+          <button onclick="copyText('urlPrivEmociona')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px] font-bold">Copiar</button>
         </div>
 
         <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between items-center">
           <div class="truncate mr-2">
-            <span class="text-slate-400 block text-[10px]">URL de Eliminación de Cuenta / Datos (Data Deletion URL):</span>
-            <span class="text-emerald-400" id="urlDel">https://tenochgiron.dev/#data-deletion</span>
+            <span class="text-slate-400 block text-[10px]">URL de Eliminación de Cuenta / Datos (Data Safety URL):</span>
+            <span class="text-emerald-400 font-bold" id="urlDel">https://tenochgiron.dev/#data-deletion</span>
           </div>
-          <button onclick="copyText('urlDel')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px]">Copiar</button>
+          <button onclick="copyText('urlDel')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px] font-bold">Copiar</button>
         </div>
 
         <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between items-center">
           <div class="truncate mr-2">
             <span class="text-slate-400 block text-[10px]">Ruta app-ads.txt (Google AdMob):</span>
-            <span class="text-slate-200" id="urlAds">https://tenochgiron.dev/app-ads.txt</span>
+            <span class="text-slate-200 font-bold" id="urlAds">https://tenochgiron.dev/app-ads.txt</span>
           </div>
-          <button onclick="copyText('urlAds')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px]">Copiar</button>
+          <button onclick="copyText('urlAds')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded text-[11px] font-bold">Copiar</button>
         </div>
       </div>
 
@@ -1528,13 +1232,13 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div class="space-y-3">
           <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-googleBlue to-googleGreen flex items-center justify-center font-bold text-white text-sm">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-googleBlue to-googleGreen flex items-center justify-center font-black text-slate-950 text-sm">
               TG
             </div>
-            <span class="font-bold text-white text-sm">Tenoch Girón | AI Studio</span>
+            <span class="font-extrabold text-white text-sm">Tenoch Girón | AI Studio</span>
           </div>
           <p class="text-slate-400 leading-relaxed">
-            Tecnología e Inteligencia Artificial con Sentido Humano. Plataforma oficial de verificación para Google Play Console y Google AdMob.
+            Tecnología e Inteligencia Artificial con Sentido Humano. Plataforma oficial de verificación e información para Google Play Console y Google AdMob.
           </p>
         </div>
 
@@ -1560,16 +1264,18 @@
         <div>
           <h4 class="font-bold text-white mb-3">Contacto Oficial</h4>
           <p class="text-slate-400 mb-2">Ing. Tenoch Alberto Girón Acosta</p>
-          <a href="mailto:tenochalbertogiron290@gmail.com" class="text-googleBlue hover:underline font-mono">
+          <a href="mailto:tenochalbertogiron290@gmail.com" class="text-googleBlue hover:underline font-mono font-bold">
             tenochalbertogiron290@gmail.com
           </a>
           <p class="text-slate-500 mt-2">Valle de México y Valle de Toluca, México.</p>
         </div>
+      </div>
+
       <!-- DATA PROTECTION AND ANTI-SCRAPING FORMAL NOTICE -->
       <div class="mb-8 p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400 space-y-2">
         <div class="flex items-center gap-2 text-emerald-400 font-semibold">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 0117.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001A11.954 11.954 0 0110 1.944zm0 2.056a9.954 9.954 0 00-6.429 2.378C3.21 7.278 3 8.354 3 9.472c0 4.254 2.748 7.913 6.643 9.384A9.956 9.956 0 0017 9.472c0-1.118-.21-2.194-.571-3.094A9.954 9.954 0 0010 4z" clip-rule="evenodd"></path></svg>
-          Aviso Formal de Protección de Datos Personales y Prohibición de Descarga / Raspado Automatizado
+          Aviso Formal de Protección de Datos Personales, Solo Consulta e Inmunidad de Descarga / Raspado
         </div>
         <p class="leading-relaxed">
           Toda la información académica, curricular y de contacto exhibida en este portal tiene propósitos estrictamente <strong>informativos y consultivos</strong> para cumplir con los estándares de verificación de identidad de desarrolladores de Google Play Console.
@@ -1580,7 +1286,7 @@
       <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
         <p>© 2026 Ing. Tenoch Alberto Girón Acosta. Todos los derechos reservados.</p>
         <div class="flex items-center gap-4">
-          <span class="text-emerald-500 flex items-center gap-1">
+          <span class="text-emerald-500 flex items-center gap-1 font-semibold">
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Google Play Console Verified
           </span>
           <span>ESCOM-IPN</span>
@@ -1590,33 +1296,29 @@
     </div>
   </footer>
 
-  <!-- SCRIPT ENGINE -->
+  <!-- SCRIPT ENGINE (SENIOR FRONTEND & BACKEND READ-ONLY SHOWCASE) -->
   <script>
     // --- STATE MANAGEMENT ---
     let currentLang = 'es';
-    let currentTimerSeconds = 1080;
-    let timerInterval = null;
-    let isTimerRunning = false;
-    let selectedChefPref = 'rapido';
 
     // --- I18N DICTIONARY ---
     const i18n = {
       es: {
         top_bar_id: "Desarrollador Oficial: Ing. Tenoch Alberto Girón Acosta",
-        top_bar_urls: "URLs para Google Play Console",
+        top_bar_urls: "URLs Oficiales Play Console",
         nav_apps: "Ecosistema Apps",
-        nav_sandbox: "Laboratorio en Vivo",
+        nav_showcase: "Vista Previa Móvil",
         nav_portfolio: "Proyectos IA & Datos",
         nav_trajectory: "Trayectoria",
         nav_compliance: "Privacidad & Play",
         nav_deletion: "Eliminar Datos",
-        nav_contact_btn: "Contacto",
-        hero_badge: "Perfil Oficial de Desarrollador en Google Play",
+        nav_contact_btn: "Contacto Oficial",
+        hero_badge: "Perfil Oficial de Desarrollador Verificado",
         hero_studio_tag: "Tenoch Girón | AI & Mobile Studio",
         hero_quote: "\"Mi meta es humanizar la Inteligencia Artificial y el desarrollo móvil: transformar algoritmos complejos —desde redes neuronales, visión por computadora y transformadores hasta telemetría IoT— en aplicaciones intuitivas, accesibles y con impacto real en la vida cotidiana, la salud emocional y la educación pública de excelencia.\"",
-        hero_cta_apps: "Explorar Apps Google Play",
-        hero_cta_sandbox: "Probar Sandbox en Vivo",
-        hero_cta_compliance: "Auditoría Play Console",
+        hero_cta_apps: "Ver Aplicaciones Publicadas",
+        hero_cta_showcase: "Vista Previa Móvil",
+        hero_cta_compliance: "Normativa Play Console",
         card_status: "Identidad y Desarrollador Verificado",
         card_field_email: "Correo de Soporte Oficial:",
         card_field_location: "Región de Operación:",
@@ -1627,10 +1329,6 @@
         apps_section_subtitle: "Ecosistema Oficial",
         apps_section_title: "Aplicaciones Móviles en Google Play & AI Studio",
         apps_section_desc: "Desarrolladas bajo estándares de Accesibilidad DUA, Privacidad desde el Diseño (Privacy-First) e Inteligencia Artificial Multimodal.",
-        btn_try_demo: "Probar Demo Interactiva",
-        sandbox_tag: "Laboratorio en Vivo (Interactive Sandbox)",
-        sandbox_title: "Prueba las Mini-Demos de las Aplicaciones",
-        sandbox_desc: "Interactúa directamente con la lógica funcional de las aplicaciones insignia de Tenoch Girón.",
         port_tag: "Investigación & Desarrollo",
         port_title: "Proyectos de Ciencia de Datos, AIoT y Ecosistema Educativo",
         port_desc: "Proyectos de investigación aplicada de posgrado (INFOTEC), desarrollo de modelos de series de tiempo y arquitectura pedagógica.",
@@ -1638,24 +1336,24 @@
         tray_title: "Trayectoria Profesional, Reconocimientos y Certificaciones",
         tray_desc: "Formación académica de excelencia y compromiso comprobado con la innovación educativa.",
         comp_title: "Centro Oficial de Privacidad, Seguridad de Datos y Soporte",
-        comp_desc: "Documentación legal vinculante, políticas de privacidad por aplicación y protocolo de eliminación de datos."
+        comp_desc: "Documentación legal vinculante, políticas de privacidad por aplicación y protocolo informativo de eliminación de datos."
       },
       en: {
         top_bar_id: "Official Developer: Tenoch Alberto Girón Acosta, Eng.",
-        top_bar_urls: "Google Play Console URLs",
+        top_bar_urls: "Official Play Console URLs",
         nav_apps: "Apps Ecosystem",
-        nav_sandbox: "Live Sandbox",
+        nav_showcase: "Mobile Showcase",
         nav_portfolio: "AI & Data Projects",
-        nav_trajectory: "Career & Bio",
+        nav_trajectory: "Bio & Timeline",
         nav_compliance: "Privacy & Play",
         nav_deletion: "Data Deletion",
-        nav_contact_btn: "Contact",
-        hero_badge: "Official Google Play Developer Profile",
+        nav_contact_btn: "Official Contact",
+        hero_badge: "Verified Official Developer Profile",
         hero_studio_tag: "Tenoch Girón | AI & Mobile Studio",
         hero_quote: "\"My goal is to humanize Artificial Intelligence and mobile development: turning complex algorithms —from neural networks, computer vision, and transformers to IoT telemetry— into intuitive, accessible applications with real impact on daily life, emotional health, and excellence in public education.\"",
-        hero_cta_apps: "Explore Google Play Apps",
-        hero_cta_sandbox: "Test Live Sandbox",
-        hero_cta_compliance: "Play Console Audit",
+        hero_cta_apps: "View Published Apps",
+        hero_cta_showcase: "Mobile Showcase",
+        hero_cta_compliance: "Play Console Policies",
         card_status: "Verified Developer & Identity",
         card_field_email: "Official Support Email:",
         card_field_location: "Operating Region:",
@@ -1666,10 +1364,6 @@
         apps_section_subtitle: "Official Ecosystem",
         apps_section_title: "Mobile Apps on Google Play & AI Studio",
         apps_section_desc: "Built under UDL Accessibility standards, Privacy-by-Design, and Multimodal Artificial Intelligence.",
-        btn_try_demo: "Test Interactive Demo",
-        sandbox_tag: "Live Sandbox (Interactive Demos)",
-        sandbox_title: "Test Application Mini-Demos",
-        sandbox_desc: "Directly experience the functional logic of Tenoch Girón's flagship applications.",
         port_tag: "Research & Development",
         port_title: "Data Science, AIoT & Educational Ecosystem Projects",
         port_desc: "Applied postgraduate research projects (INFOTEC), financial time series modeling, and pedagogical engineering.",
@@ -1677,7 +1371,7 @@
         tray_title: "Professional Trajectory, Awards & Certifications",
         tray_desc: "Academic excellence and proven commitment to educational innovation in public institutions.",
         comp_title: "Official Privacy, Data Safety & Support Center",
-        comp_desc: "Binding legal policies, per-app privacy disclosures, and formal account deletion protocol."
+        comp_desc: "Binding legal policies, per-app privacy disclosures, and informative account deletion protocol."
       }
     };
 
@@ -1709,228 +1403,125 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // --- SANDBOX SWITCHER ---
-    function switchSandboxTab(tab) {
-      document.getElementById('sandboxChef').classList.toggle('hidden', tab !== 'chef');
-      document.getElementById('sandboxEmociona').classList.toggle('hidden', tab !== 'emociona');
-      document.getElementById('sandboxCetis').classList.toggle('hidden', tab !== 'cetis');
+    // --- SHOWCASE DATA ENGINE (READ-ONLY HIGH-FIDELITY MOBILE SCREEN PREVIEWS) ---
+    const showcaseData = {
+      chef: {
+        tag: 'Estilo de Vida & Gastronomía con IA',
+        title: 'ChefMágico — Gastronomía Inteligente',
+        desc: 'Demostración de la interfaz móvil de ChefMágico: la visión multimodal escanea el refrigerador de forma efímera para generar recetas saludables sin desperdicio y gestionar el temporizador con control por voz.',
+        aiModel: 'Gemini Multimodal Vision + LLM JSON Mode',
+        dua: 'Modo Lectura Grande (DUA) con voz integrada',
+        mockupHtml: `
+          <div class="space-y-3">
+            <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30">
+              <span class="text-[10px] font-bold text-amber-400 uppercase">Escáner de Nevera con IA</span>
+              <div class="font-bold text-white text-sm mt-0.5">Ingredientes Detectados: 4</div>
+              <p class="text-[11px] text-slate-300 mt-1">Pollo, Jitomate, Aguacate, Queso Oaxaca</p>
+            </div>
 
-      const btnChef = document.getElementById('tabChefBtn');
-      const btnEmociona = document.getElementById('tabEmocionaBtn');
-      const btnCetis = document.getElementById('tabCetisBtn');
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+              <div class="flex justify-between items-center text-[10px]">
+                <span class="text-amber-400 font-bold">Receta Personalizada</span>
+                <span class="text-slate-400">18 min</span>
+              </div>
+              <div class="font-bold text-white">Fajitas al Sartén Gratinated</div>
+              <p class="text-[10px] text-slate-400 leading-tight">1. Sellar pechuga en tiras.<br>2. Añadir verdura y gratinar queso.<br>3. Servir con aguacate fresco.</p>
+            </div>
 
-      btnChef.className = tab === 'chef' ? 'px-4 py-2 rounded-lg text-xs font-semibold bg-amber-500 text-slate-950 shadow transition flex items-center gap-1.5' : 'px-4 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5';
-      btnEmociona.className = tab === 'emociona' ? 'px-4 py-2 rounded-lg text-xs font-semibold bg-sparkPurple text-white shadow transition flex items-center gap-1.5' : 'px-4 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5';
-      btnCetis.className = tab === 'cetis' ? 'px-4 py-2 rounded-lg text-xs font-semibold bg-googleBlue text-white shadow transition flex items-center gap-1.5' : 'px-4 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5';
-    }
+            <div class="p-3 rounded-xl bg-slate-950 border border-amber-500/40 text-center">
+              <span class="text-[10px] text-slate-400 uppercase font-semibold">Temporizador Manos Libres</span>
+              <div class="font-mono text-xl font-black text-amber-400">18:00</div>
+            </div>
+          </div>
+        `
+      },
+      emociona: {
+        tag: 'Salud & Psicología Psicoeducativa',
+        title: 'Emociona — Bienestar Emocional',
+        desc: 'Demostración de la rueda interactiva de emociones de 6 núcleos, ejercicio reflexivo guiado bajo el Modelo ABC y cálculo automático de tendencias en el test de 28 reactivos de estilos de apego.',
+        aiModel: 'Motor Psicoeducativo Local Privacy-First',
+        dua: 'Rueda multinivel con alto contraste visual',
+        mockupHtml: `
+          <div class="space-y-3">
+            <div class="p-3 rounded-xl bg-sparkPurple/10 border border-sparkPurple/30">
+              <span class="text-[10px] font-bold text-purple-400 uppercase">Rueda de Emociones</span>
+              <div class="font-bold text-white text-sm mt-0.5">Core Activo: 😊 Alegría</div>
+              <p class="text-[11px] text-slate-300 mt-1">Gratitud • Esperanza • Entusiasmo</p>
+            </div>
 
-    function launchSandbox(tab) {
-      switchSandboxTab(tab);
-      document.getElementById('sandbox').scrollIntoView({ behavior: 'smooth' });
-    }
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+              <span class="text-[10px] text-sparkPurple font-bold">Modelo ABC Cognitive Journal</span>
+              <p class="text-[10px] text-slate-300 italic">"¿Qué momento de tu día activó esta satisfacción?"</p>
+            </div>
 
-    // --- CHEFMÁGICO ENGINE ---
-    const selectedIngredients = new Set(['Pechuga de Pollo', 'Jitomate', 'Aguacate', 'Queso Oaxaca']);
+            <div class="p-3 rounded-xl bg-slate-950 border border-sparkPurple/40 text-center">
+              <span class="text-[10px] text-slate-400 uppercase font-semibold">Test de Apego (28 Reactivos)</span>
+              <div class="font-bold text-purple-300 text-xs mt-0.5">Tendencia: Apego Seguro / Autónomo</div>
+            </div>
+          </div>
+        `
+      },
+      cetis: {
+        tag: 'Educación & Alerta Temprana',
+        title: 'Bienestar CETis 23 — Acompañamiento',
+        desc: 'Demostración del panel escolar de acompañamiento socioemocional: termómetro de clima escolar grupal "Pausa, Conecta y Expresa", indicadores de retención y alertas tempranas para tutores.',
+        aiModel: 'Algoritmo Predictivo de Abandono Escolar',
+        dua: 'Optimizado para dispositivos 3G/4G de gama media',
+        mockupHtml: `
+          <div class="space-y-3">
+            <div class="p-3 rounded-xl bg-sky-500/10 border border-sky-500/30">
+              <span class="text-[10px] font-bold text-sky-400 uppercase">Termómetro de Clima Escolar</span>
+              <div class="font-bold text-white text-sm mt-0.5">Clima Grupal: 8.4 / 10</div>
+              <p class="text-[11px] text-emerald-400 mt-1">Estable • Dinámica "Pausa y Conecta"</p>
+            </div>
 
-    function toggleIngredient(btn, ing) {
-      if (selectedIngredients.has(ing)) {
-        selectedIngredients.delete(ing);
-        btn.classList.remove('bg-amber-500', 'text-slate-950', 'border-amber-400');
-        btn.classList.add('bg-slate-800/80', 'text-slate-200', 'border-slate-700');
-      } else {
-        selectedIngredients.add(ing);
-        btn.classList.add('bg-amber-500', 'text-slate-950', 'border-amber-400');
-        btn.classList.remove('bg-slate-800/80', 'text-slate-200', 'border-slate-700');
+            <div class="grid grid-cols-2 gap-2 text-center">
+              <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                <span class="text-[9px] text-slate-400 block">Retención</span>
+                <span class="font-bold text-emerald-400 font-mono text-sm">96.2%</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                <span class="text-[9px] text-slate-400 block">Alertas</span>
+                <span class="font-bold text-sky-400 font-mono text-sm">1 Activa</span>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-950 border border-sky-500/40">
+              <span class="text-[10px] text-sky-400 uppercase font-bold block">Canalización Tutorial</span>
+              <p class="text-[10px] text-slate-300">Seguimiento semanal de factores de riesgo con padres de familia.</p>
+            </div>
+          </div>
+        `
       }
-    }
+    };
 
-    // Init pre-selected chips visually
-    document.querySelectorAll('.pantry-chip').forEach(btn => {
-      const ing = btn.getAttribute('data-ing');
-      if (selectedIngredients.has(ing)) {
-        btn.classList.add('bg-amber-500', 'text-slate-950', 'border-amber-400');
-        btn.classList.remove('bg-slate-800/80', 'text-slate-200', 'border-slate-700');
-      }
-    });
+    function selectShowcase(key) {
+      const data = showcaseData[key];
+      if (!data) return;
 
-    function selectChefPref(btn, pref) {
-      selectedChefPref = pref;
-      document.querySelectorAll('.chef-pref-btn').forEach(b => {
-        b.classList.remove('border-amber-500', 'bg-amber-500/20', 'text-amber-300');
-        b.classList.add('border-slate-700', 'bg-slate-800/60', 'text-slate-300');
-      });
-      btn.classList.add('border-amber-500', 'bg-amber-500/20', 'text-amber-300');
-      btn.classList.remove('border-slate-700', 'bg-slate-800/60', 'text-slate-300');
-    }
+      document.getElementById('mockupTag').textContent = data.tag;
+      document.getElementById('mockupTitle').textContent = data.title;
+      document.getElementById('mockupDesc').textContent = data.desc;
+      document.getElementById('mockupAiModel').textContent = data.aiModel;
+      document.getElementById('mockupDua').textContent = data.dua;
+      document.getElementById('mockupScreenContent').innerHTML = data.mockupHtml;
 
-    function toggleChefDua() {
-      const isChecked = document.getElementById('chefDuaToggle').checked;
-      const content = document.getElementById('recipeDisplayCard');
-      if (isChecked) {
-        content.classList.add('text-base');
-        document.getElementById('recipeBodyContent').classList.remove('text-xs');
-        document.getElementById('recipeBodyContent').classList.add('text-sm');
-      } else {
-        content.classList.remove('text-base');
-        document.getElementById('recipeBodyContent').classList.add('text-xs');
-        document.getElementById('recipeBodyContent').classList.remove('text-sm');
-      }
-    }
+      const btnChef = document.getElementById('showcaseTabChef');
+      const btnEmociona = document.getElementById('showcaseTabEmociona');
+      const btnCetis = document.getElementById('showcaseTabCetis');
 
-    function generateRecipe() {
-      const ings = Array.from(selectedIngredients);
-      const titleEl = document.getElementById('recipeTitle');
-      const metaEl = document.getElementById('recipeMeta');
-      const ingListEl = document.getElementById('recipeIngredientsList');
-      const stepsEl = document.getElementById('recipeStepsList');
-
-      if (ings.length === 0) {
-        alert('Por favor selecciona al menos 1 o 2 ingredientes de la despensa virtual.');
-        return;
-      }
-
-      if (selectedChefPref === 'rapido') {
-        titleEl.textContent = 'Salteado Express con ' + ings.slice(0, 2).join(' y ');
-        metaEl.textContent = '⏱️ 12 minutos • 🔥 340 kcal • 2 porciones';
-        resetTimer(720);
-      } else if (selectedChefPref === 'saludable') {
-        titleEl.textContent = 'Bowl Proteico Ligero con ' + ings.slice(0, 3).join(', ');
-        metaEl.textContent = '⏱️ 15 minutos • 🔥 290 kcal • 1 porción';
-        resetTimer(900);
-      } else {
-        titleEl.textContent = 'Cazuela Mexicana Contemporánea con ' + ings.slice(0, 2).join(' y ');
-        metaEl.textContent = '⏱️ 22 minutos • 🔥 450 kcal • 4 porciones';
-        resetTimer(1320);
-      }
-
-      ingListEl.textContent = ings.join(', ') + ', con hierbas aromáticas al gusto y aceite de oliva.';
-      stepsEl.innerHTML = `
-        <li>Picar los ingredientes frescos (${ings.slice(0, 2).join(' y ')}) en cortes uniformes para cocción pareja.</li>
-        <li>Sellar en sartén caliente a fuego medio durante 6 minutos conservando textura y nutrientes.</li>
-        <li>Incorporar los complementos (${ings.slice(2).join(', ') || 'sazón'}) a fuego bajo.</li>
-        <li>Servir caliente. ¡Buen provecho sin desperdicio de comida!</li>
-      `;
-    }
-
-    // --- COOKING TIMER ENGINE ---
-    function formatTime(sec) {
-      const m = Math.floor(sec / 60);
-      const s = sec % 60;
-      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-    }
-
-    function startTimer() {
-      if (isTimerRunning) return;
-      isTimerRunning = true;
-      document.getElementById('timerStartBtn').classList.add('opacity-50');
-      timerInterval = setInterval(() => {
-        if (currentTimerSeconds > 0) {
-          currentTimerSeconds--;
-          document.getElementById('timerDisplay').textContent = formatTime(currentTimerSeconds);
-        } else {
-          clearInterval(timerInterval);
-          isTimerRunning = false;
-          alert('🔔 ¡Tiempo de cocción finalizado en ChefMágico!');
-        }
-      }, 1000);
-    }
-
-    function pauseTimer() {
-      clearInterval(timerInterval);
-      isTimerRunning = false;
-      document.getElementById('timerStartBtn').classList.remove('opacity-50');
-    }
-
-    function resetTimer(newSeconds) {
-      pauseTimer();
-      currentTimerSeconds = newSeconds || 1080;
-      document.getElementById('timerDisplay').textContent = formatTime(currentTimerSeconds);
-    }
-
-    // --- EMOCIONA ENGINE ---
-    function selectEmotion(id, title, emoji, subNuances, abcPrompt) {
-      document.querySelectorAll('.emotion-core-btn').forEach(b => b.classList.remove('ring-2', 'ring-white'));
-      event.currentTarget.classList.add('ring-2', 'ring-white');
-
-      document.getElementById('activeEmotionTitle').textContent = title;
-      document.getElementById('activeEmotionEmoji').textContent = emoji;
-      document.getElementById('emotionAbcPrompt').textContent = `"${abcPrompt}"`;
-
-      const subContainer = document.getElementById('emotionSubNuances');
-      subContainer.innerHTML = '';
-      subNuances.forEach(sub => {
-        const span = document.createElement('span');
-        span.className = 'px-2.5 py-1 rounded-full bg-slate-800 text-slate-200 text-xs border border-slate-700 animate-fadeIn';
-        span.textContent = sub;
-        subContainer.appendChild(span);
-      });
-    }
-
-    function calcTestScore() {
-      const q1 = parseInt(document.querySelector('input[name="item1"]:checked')?.value || 3);
-      const q2 = parseInt(document.querySelector('input[name="item2"]:checked')?.value || 3);
-      const q3 = parseInt(document.querySelector('input[name="item3"]:checked')?.value || 3);
-
-      const title = document.getElementById('testTendencyName');
-      const desc = document.getElementById('testTendencyDesc');
-
-      if (q1 >= 4 && q2 <= 2) {
-        title.textContent = 'Tendencia: Apego Seguro Predominante';
-        desc.textContent = 'Muestras alta confianza en la interdependencia saludable y adecuada regulación del estrés interpersonal.';
-      } else if (q2 >= 4) {
-        title.textContent = 'Tendencia: Matiz Ansioso-Preocupado';
-        desc.textContent = 'Mayor sensibilidad hacia la aprobación externa. Las actividades guiadas del Modelo ABC favorecen tu auto-validación.';
-      } else if (q3 >= 4) {
-        title.textContent = 'Tendencia: Matiz Evitativo-Independiente';
-        desc.textContent = 'Fuerte énfasis en la autosuficiencia emocional. Practicar la expresión gradual fortalece tus vínculos seguros.';
-      } else {
-        title.textContent = 'Tendencia: Apego Seguro en Exploración Equilibrada';
-        desc.textContent = 'Tus puntuaciones reflejan flexibilidad adaptativa ante las relaciones interpersonales cotidianas.';
-      }
-    }
-
-    // --- BIENESTAR CETIS 23 SIMULATION ENGINE ---
-    function updateCetisSimulation() {
-      const asist = parseInt(document.querySelectorAll('input[type="range"]')[0].value);
-      const clima = parseFloat(document.querySelectorAll('input[type="range"]')[1].value);
-      const tut = parseInt(document.querySelectorAll('input[type="range"]')[2].value);
-
-      document.getElementById('valAsistencia').textContent = asist + '%';
-      document.getElementById('valClima').textContent = clima + ' / 10';
-      document.getElementById('valTutorias').textContent = tut + ' sesiones';
-
-      // Computed retention & risk tier
-      const retencion = Math.min(99.5, (asist * 0.55 + clima * 3.5 + tut * 1.5)).toFixed(1);
-      document.getElementById('kpiRetencion').textContent = retencion + '%';
-
-      const badge = document.getElementById('cetisRiskBadge');
-      const protocol = document.getElementById('cetisProtocolText');
-
-      if (retencion >= 92) {
-        badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
-        badge.textContent = 'Riesgo Bajo';
-        protocol.textContent = '"Nivel de Riesgo Bajo. Mantener el monitoreo preventivo semanal mediante la dinámica \'Pausa, Conecta y Expresa\' e incentivar la participación en proyectos de IA."';
-        document.getElementById('kpiAlertas').textContent = '1';
-      } else if (retencion >= 80) {
-        badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30';
-        badge.textContent = 'Riesgo Moderado';
-        protocol.textContent = '"Nivel de Riesgo Moderado. Programar entrevista tutorial de orientación y activar seguimiento de asistencia con padres de familia."';
-        document.getElementById('kpiAlertas').textContent = '5';
-      } else {
-        badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/30';
-        badge.textContent = 'Alerta Temprana Alta';
-        protocol.textContent = '"Alerta de Deserción Inminente. Canalización inmediata al Comité Técnico de Acompañamiento Socioemocional y plan de regularización académica."';
-        document.getElementById('kpiAlertas').textContent = '12';
-      }
+      btnChef.className = key === 'chef' ? 'px-4 py-2 rounded-lg bg-amber-500 text-slate-950 shadow transition flex items-center gap-1.5' : 'px-4 py-2 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1.5';
+      btnEmociona.className = key === 'emociona' ? 'px-4 py-2 rounded-lg bg-sparkPurple text-white shadow transition flex items-center gap-1.5' : 'px-4 py-2 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1.5';
+      btnCetis.className = key === 'cetis' ? 'px-4 py-2 rounded-lg bg-googleBlue text-slate-950 shadow transition flex items-center gap-1.5' : 'px-4 py-2 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1.5';
     }
 
     // --- PORTFOLIO FILTER ---
     function filterPortfolio(category, btn) {
       document.querySelectorAll('.port-filter-btn').forEach(b => {
-        b.classList.remove('bg-googleGreen', 'text-slate-950', 'font-bold');
+        b.classList.remove('bg-googleGreen', 'text-slate-950');
         b.classList.add('text-slate-300');
       });
-      btn.classList.add('bg-googleGreen', 'text-slate-950', 'font-bold');
+      btn.classList.add('bg-googleGreen', 'text-slate-950');
       btn.classList.remove('text-slate-300');
 
       document.querySelectorAll('.port-card').forEach(card => {
@@ -1953,14 +1544,14 @@
       tabs.forEach(t => {
         const b = document.getElementById('btnComp' + t.charAt(0).toUpperCase() + t.slice(1));
         if (t === tab) {
-          b.className = 'comp-tab-btn active px-4 py-2 rounded-xl text-xs font-bold bg-googleBlue text-white shadow';
+          b.className = 'comp-tab-btn active px-4 py-2 rounded-xl text-xs font-bold bg-googleBlue text-slate-950 shadow';
         } else {
           b.className = 'comp-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-700 text-slate-300 hover:text-white';
         }
       });
     }
 
-    // Direct hash routing for Google Play reviewers
+    // Hash routing
     window.addEventListener('hashchange', checkHashRoute);
     function checkHashRoute() {
       const hash = window.location.hash;
@@ -1977,41 +1568,13 @@
     }
     checkHashRoute();
 
-    // --- DATA DELETION HANDLER ---
-    function handleDataDeletion(e) {
-      e.preventDefault();
-      const app = document.getElementById('delAppSelect').value;
-      const email = document.getElementById('delUserEmail').value;
-      const scope = document.querySelector('input[name="delScope"]:checked').value;
-      const reason = document.getElementById('delReason').value || 'Sin motivo adicional especificado';
-
-      const randomCode = Math.floor(1000 + Math.random() * 9000);
-      const ticketId = `DEL-2026-${randomCode}`;
-
-      document.getElementById('ticketIdDisplay').textContent = ticketId;
-      document.getElementById('delSuccessBox').classList.remove('hidden');
-
-      const subject = encodeURIComponent(`Solicitud de Eliminación de Datos - ${app} - Ticket ${ticketId}`);
-      const body = encodeURIComponent(
-        `SOLICITUD FORMAL DE ELIMINACIÓN DE DATOS (GOOGLE PLAY COMPLIANCE)\n\n` +
-        `ID de Ticket: ${ticketId}\n` +
-        `Aplicación: ${app}\n` +
-        `Correo/ID de Usuario: ${email}\n` +
-        `Alcance del Borrado: ${scope}\n` +
-        `Detalles adicionales: ${reason}\n\n` +
-        `Solicito la eliminación definitiva de mis registros conforme al protocolo oficial de Google Play Console.`
-      );
-
-      document.getElementById('delMailtoLink').href = `mailto:tenochalbertogiron290@gmail.com?subject=${subject}&body=${body}`;
-    }
-
     // --- APP-ADS.TXT COPY ---
     function copyAppAdsTxt() {
       const text = document.getElementById('appAdsPre').textContent.trim();
       navigator.clipboard.writeText(text).then(() => {
         document.getElementById('copyAdsLabel').textContent = '¡Copiado con Éxito!';
         setTimeout(() => {
-          document.getElementById('copyAdsLabel').textContent = 'Copiar app-ads.txt';
+          document.getElementById('copyAdsLabel').textContent = 'Copiar Cadena app-ads.txt';
         }, 2500);
       });
     }
@@ -2038,7 +1601,7 @@
       });
     }
 
-    // --- GEMINI AI ASSISTANT ---
+    // --- INFORMATIVE AI ASSISTANT ---
     function toggleAiChat() {
       document.getElementById('aiChatWindow').classList.toggle('hidden');
     }
@@ -2048,25 +1611,21 @@
       handleSendAiMessage(new Event('submit'));
     }
 
-    // Comprehensive offline & developer-knowledge assistant
     function getKnowledgeBaseResponse(query) {
       const q = query.toLowerCase();
       if (q.includes('app') || q.includes('chef') || q.includes('emociona') || q.includes('cetis')) {
-        return "El catálogo de Tenoch Girón incluye 3 aplicaciones destacadas en Google Play:\n\n1. **ChefMágico**: Asistente culinario con visión multimodal para escaneo de despensa, temporizador por voz y modo de lectura grande (DUA).\n2. **Emociona**: Bienestar emocional, rueda de emociones multinivel, evaluación de 28 reactivos de estilos de apego y diario con Modelo ABC (Privacy-by-Design).\n3. **Bienestar CETis 23**: Sistema escolar de alerta temprana y acompañamiento socioemocional para prevenir el abandono escolar.";
+        return "El catálogo informativo del Ing. Tenoch Alberto Girón Acosta incluye 3 aplicaciones destacadas:\n\n1. **ChefMágico**: Gastronomía accesible con visión multimodal para neveras, temporizador por voz y modo de lectura grande (DUA).\n2. **Emociona**: Bienestar emocional, rueda de emociones multinivel, test de apego de 28 reactivos y diario del Modelo ABC.\n3. **Bienestar CETis 23**: Sistema escolar de alerta temprana y acompañamiento socioemocional.";
       }
       if (q.includes('permiso') || q.includes('cámara') || q.includes('microfono') || q.includes('privacidad')) {
-        return "Políticas transparentes de permisos:\n- **ChefMágico**: Cámara únicamente para escaneo efímero de ingredientes vía IA multimodal (sin almacenar fotos en servidores). Micrófono para temporizador por voz manos libres en sesión.\n- **Emociona**: Procesamiento 100% local en dispositivo para respuestas reflexivas y test. Sin venta de datos de salud.\n- **Contacto oficial**: tenochalbertogiron290@gmail.com con cumplimiento de Ley Federal de Protección de Datos (México) y Google Play Data Safety.";
+        return "Políticas transparentes de permisos:\n- **ChefMágico**: Cámara únicamente para reconocimiento efímero de insumos. Micrófono para órdenes locales por voz.\n- **Emociona**: Procesamiento local Privacy-First. Sin venta de datos.\n- **Contacto oficial**: tenochalbertogiron290@gmail.com con cumplimiento de Ley Federal de Protección de Datos (México) y Google Play Data Safety.";
       }
       if (q.includes('elimin') || q.includes('borrar') || q.includes('cuenta') || q.includes('ticket')) {
-        return "Puedes solicitar el borrado permanente de tu cuenta o datos a través de la sección **'Eliminación de Datos'** de esta web. Se genera un ticket formal (ej. DEL-2026-XXXX) y el compromiso de resolución es menor a 72 horas hábiles hacia tu correo, cumpliendo con la normativa de Google Play.";
+        return "Para solicitar el borrado permanente de tu cuenta o datos, consulta la sección **'Eliminación de Datos'** de esta web y envía un mensaje a tenochalbertogiron290@gmail.com. Las solicitudes se procesan en un plazo máximo de 72 horas hábiles.";
       }
-      if (q.includes('ipn') || q.includes('escom') || q.includes('infotec') || q.includes('trayectoria') || q.includes('docente') || q.includes('quién es') || q.includes('quien es')) {
-        return "El **Ing. Tenoch Alberto Girón Acosta** es Ingeniero en Sistemas Computacionales por la **ESCOM del IPN**, Maestrante en Gestión de Innovación TIC en **INFOTEC**, y Coordinador y Titular de la Carrera Técnica en Inteligencia Artificial en el **CETis No. 23 (DGETI)**. Ha recibido la basificación por excelente desempeño docente y el Galardón al Mejor Proyecto del Año.";
+      if (q.includes('ipn') || q.includes('escom') || q.includes('infotec') || q.includes('trayectoria') || q.includes('quién es') || q.includes('quien es')) {
+        return "El **Ing. Tenoch Alberto Girón Acosta** es Ingeniero en Sistemas Computacionales por **ESCOM-IPN**, Maestrante en **INFOTEC**, y Coordinador y Titular de la Carrera Técnica en Inteligencia Artificial en el **CETis No. 23 (DGETI)**. Obtuvo la basificación docente por excelente desempeño.";
       }
-      if (q.includes('fuga') || q.includes('agua') || q.includes('aiot') || q.includes('telemetría')) {
-        return "En su investigación en INFOTEC, Tenoch analizó más de 15,000 registros en intervalos de 15 minutos en 4 Distritos Hidrométricos del Valle de México, aplicando modelos estadísticos y Caudal Mínimo Nocturno (MNF) para detectar fugas ocultas severas.";
-      }
-      return "Gracias por tu mensaje. El Ing. Tenoch Alberto Girón Acosta desarrolla soluciones de software e IA con sentido humano. Para atención personalizada o auditorías de Google Play Console, puedes escribir directamente a tenochalbertogiron290@gmail.com.";
+      return "Gracias por consultar el portal del Ing. Tenoch Alberto Girón Acosta. Para atención directa o soporte de Google Play Console, puedes escribir a tenochalbertogiron290@gmail.com.";
     }
 
     function handleSendAiMessage(e) {
@@ -2081,7 +1640,7 @@
       const userBubble = document.createElement('div');
       userBubble.className = 'flex items-start justify-end gap-2';
       userBubble.innerHTML = `
-        <div class="p-3 rounded-xl bg-googleBlue text-white max-w-[85%] text-xs shadow">
+        <div class="p-3 rounded-xl bg-googleBlue text-slate-950 font-semibold max-w-[85%] text-xs shadow">
           ${text}
         </div>
       `;
@@ -2093,9 +1652,9 @@
       const loadingBubble = document.createElement('div');
       loadingBubble.className = 'flex items-start gap-2';
       loadingBubble.innerHTML = `
-        <div class="w-6 h-6 rounded-full bg-googleBlue/20 text-googleBlue flex items-center justify-center shrink-0 text-xs">✨</div>
+        <div class="w-6 h-6 rounded-full bg-googleBlue/20 text-googleBlue flex items-center justify-center shrink-0 text-xs font-bold">✨</div>
         <div class="p-2.5 rounded-xl bg-slate-800/60 text-slate-400 text-xs italic">
-          Procesando respuesta...
+          Consultando base de conocimientos...
         </div>
       `;
       chatContainer.appendChild(loadingBubble);
@@ -2108,14 +1667,14 @@
         const aiBubble = document.createElement('div');
         aiBubble.className = 'flex items-start gap-2';
         aiBubble.innerHTML = `
-          <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-googleBlue to-sparkPurple text-white flex items-center justify-center shrink-0 text-xs">✨</div>
+          <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-googleBlue to-sparkPurple text-white flex items-center justify-center shrink-0 text-xs font-bold">✨</div>
           <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-slate-200 max-w-[85%] whitespace-pre-line text-xs shadow">
             ${reply}
           </div>
         `;
         chatContainer.appendChild(aiBubble);
         chatContainer.scrollTop = chatContainer.scrollHeight;
-      }, 600);
+      }, 500);
     }
   </script>
 </body>
